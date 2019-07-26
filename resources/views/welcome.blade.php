@@ -4,19 +4,10 @@
 
     <div class="container">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-lg-6">
                 <div class="title" id="featured">
                         <h3>Destacats</h3>
                 </div>
-            </div>
-            <div class="col-md-6">
-                <div class="title" id="semi-featured">
-                        <h3>Semi destacats</h3>
-                </div>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6">
                 <div class="slider">
                     <div id="carousel" class="carousel slide" data-ride="carousel">
                         <ol class="carousel-indicators">
@@ -84,45 +75,50 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6">
-                <div class="row semi-featured-row">
-                    <div class="col-md-6 news-block">
-                        <a href="#" class="news-link">
-                            <img src="ney.jpg" alt="First slide">
-                            <div class="news-caption">
-                                <h3>Neymar torna al Barça</h3>
-                                <p class="date">26/07/2019</p>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="col-md-6 news-block">
-                        <a href="#" class="news-link">
-                            <img src="trump.jpg" alt="First slide">
-                            <div class="news-caption">
-                                <h3>Trump declara la guerra a Iran</h3>
-                                <p class="date">26/07/2019</p>
-                            </div>
-                        </a>
-                    </div>
+            <div class="col-lg-6" id="semi-featured-col">
+                <div class="title" id="semi-featured">
+                    <h3>Semi destacats</h3>
                 </div>
-                <div class="row semi-featured-row">
-                    <div class="col-md-6 news-block">
-                        <a href="#" class="news-link">
-                            <img src="ney.jpg" alt="First slide">
-                            <div class="news-caption">
-                                <h3>Títol Notícia 1</h3>
-                                <p class="date">26/07/2019</p>
-                            </div>
-                        </a>
+                <div id="semi-featured-rows-container">
+                    <div class="row semi-featured-row">
+                        <div class="col-lg-6 news-block">
+                            <a href="#" class="news-link">
+                                <img src="ney.jpg" alt="First slide">
+                                <div class="news-caption">
+                                    <h3>Neymar torna al Barça</h3>
+                                    <p class="date">26/07/2019</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 news-block">
+                            <a href="#" class="news-link">
+                                <img src="trump.jpg" alt="First slide">
+                                <div class="news-caption">
+                                    <h3>Trump declara la guerra a Iran</h3>
+                                    <p class="date">26/07/2019</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                    <div class="col-md-6 news-block">
-                        <a href="#" class="news-link">
-                            <img src="ney.jpg" alt="First slide">
-                            <div class="news-caption">
-                                <h3>Títol Notícia 1</h3>
-                                <p class="date">26/07/2019</p>
-                            </div>
-                        </a>
+                    <div class="row semi-featured-row">
+                        <div class="col-lg-6 news-block">
+                            <a href="#" class="news-link">
+                                <img src="ney.jpg" alt="First slide">
+                                <div class="news-caption">
+                                    <h3>Títol Notícia 1</h3>
+                                    <p class="date">26/07/2019</p>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 news-block">
+                            <a href="#" class="news-link">
+                                <img src="ney.jpg" alt="First slide">
+                                <div class="news-caption">
+                                    <h3>Títol Notícia 1</h3>
+                                    <p class="date">26/07/2019</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
