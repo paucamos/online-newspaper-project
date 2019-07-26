@@ -1,5 +1,9 @@
 /*************** HOME PAGE ***************/
 
+.title {
+    font-weight: bold;
+}
+
 .slider{
     width: 100%;
     height: 450px;
@@ -22,11 +26,6 @@
     opacity: .7;
 }
 
-.title {
-    text-align: center;
-    font-weight: bold;
-}
-
 .carousel-caption {
     z-index: 1;
 }
@@ -38,6 +37,8 @@
 .carousel-control-prev-icon, .carousel-control-next-icon {
     padding: 10px;
 }
+
+/* SEMI-FEATURED NEWS */
 
 #semi-featured-col {
     margin-bottom: 50px;
@@ -92,11 +93,72 @@
     font-weight: 600;
 }
 
+/* SECONDARY NEWS */
+
+#secondary-news-image-container {
+    width: 100%;
+    height: 250px;
+    margin-bottom: 20px;
+}
+
+#secondary-news-image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 0 30px;
+}
+
+#secondary-news-text {
+    padding: 0 30px;
+    color: black;
+}
+
+#secondary-news-text h3 {
+    font-weight: bold;
+}
+
+#secondary-news-text .date {
+    color: gray;
+    margin-bottom: 5px;
+}
+
+.older-news {
+    height: 150px;
+}
+
+.older-news a {
+    display: block;
+    width: 100%;
+    height: 100%;
+    color: black;
+}
+
+.older-news a .image-container {
+    height: 100%;
+    width: 200px;
+    float: left;
+}
+
+.older-news a .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    padding: 20px;
+}
+
+.older-news a .text-container {
+    padding-top: 20px;
+}
+
 /*************** MOBILE ***************/
 
     @media (max-width: 991px) {
 
         /********** HOME PAGE **********/
+
+        .title {
+            text-align: center;
+        }
 
         .slider, .slider img, #carousel, .carousel-item {
             border-radius: 5px;
@@ -125,5 +187,9 @@
 
         .news-block, .news-block img {
             border-radius: 5px;
+        }
+
+        .older-news a .image-container img {
+            border-radius: 25px;
         }
     }

@@ -126,15 +126,105 @@
 
         <div class="row">
             <div class="col-lg-6">
-
+                <a href="">
+                    <div id="secondary-news-image-container">
+                        <img src="ney.jpg" alt="imatge noticia secundaria">
+                    </div>
+                    <div id="secondary-news-text">
+                        <h3>TÍTOL NOTICIA</h3>
+                        <p class="date">25/07/2019</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dicta magni impedit placeat. Sit, consectetur. Non maxime laudantium voluptatem quasi enim vitae qui, quibusdam quo, et recusandae impedit eveniet animi!</p>
+                    </div>
+                </a>
             </div>
             <div class="col-lg-6">
-                
+                <a href="">
+                    <div id="secondary-news-image-container">
+                        <img src="ney.jpg" alt="imatge noticia secundaria">
+                    </div>
+                    <div id="secondary-news-text">
+                        <h3>TÍTOL NOTICIA</h3>
+                        <p class="date">25/07/2019</p>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dicta magni impedit placeat. Sit, consectetur. Non maxime laudantium voluptatem quasi enim vitae qui, quibusdam quo, et recusandae impedit eveniet animi!</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="older-news">
+                    <a href="">
+                        <div class="image-container">
+                            <img src="ney.jpg" alt="Imatge neymar">
+                        </div>
+                        <div class="text-container">
+                            <h4>Títol notícia</h4>
+                            <p class="date">26/07/2019</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="older-news">
+                    <a href="">
+                        <div class="image-container">
+                            <img src="ney.jpg" alt="Imatge neymar">
+                        </div>
+                        <div class="text-container">
+                            <h4>Títol notícia</h4>
+                            <p class="date">26/07/2019</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="older-news">
+                    <a href="">
+                        <div class="image-container">
+                            <img src="ney.jpg" alt="Imatge neymar">
+                        </div>
+                        <div class="text-container">
+                            <h4>Títol notícia</h4>
+                            <p class="date">26/07/2019</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="older-news">
+                    <a href="">
+                        <div class="image-container">
+                            <img src="ney.jpg" alt="Imatge neymar">
+                        </div>
+                        <div class="text-container">
+                            <h4>Títol notícia</h4>
+                            <p class="date">26/07/2019</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="older-news">
+                    <a href="">
+                        <div class="image-container">
+                            <img src="ney.jpg" alt="Imatge neymar">
+                        </div>
+                        <div class="text-container">
+                            <h4>Títol notícia</h4>
+                            <p class="date">26/07/2019</p>
+                        </div>
+                    </a>
+                </div>
+                <div class="older-news">
+                    <a href="">
+                        <div class="image-container">
+                            <img src="ney.jpg" alt="Imatge neymar">
+                        </div>
+                        <div class="text-container">
+                            <h4>Títol notícia</h4>
+                            <p class="date">26/07/2019</p>
+                        </div>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
 
-    <footer>
+    <footer id="footer">
 
     </footer>
 
