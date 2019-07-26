@@ -21,6 +21,7 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/frontend.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
 </head>
 <body>
     <header id="header">
