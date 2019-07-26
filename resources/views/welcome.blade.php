@@ -224,9 +224,4 @@
         </div>
     </div>
 
-    <footer id="footer">
-
-    </footer>
-
-
 @endsection

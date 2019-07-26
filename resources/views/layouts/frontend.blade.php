@@ -17,6 +17,7 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
@@ -55,5 +56,12 @@
     <main class="py-4">
         @yield('content')
     </main>
+
+    <footer id="footer">
+        <a href="">
+            <h2 id="footer-title">Diari localhost</h2>
+        </a>
+    </footer>
+    
 </body>
 </html>
