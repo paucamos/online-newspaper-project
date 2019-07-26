@@ -30,4 +30,6 @@ class CreateArticlesRegionsTable extends Migration
     {
         Schema::dropIfExists('articles_regions');
     }
+    
+    
 }

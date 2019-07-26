@@ -17,10 +17,11 @@ class CreateArticlesTable extends Migration
             $table->bigIncrements('id');
             $table->string('title');
             $table->string('description');
-            $table->string('body');
+            $table->text('body');
             $table->string('photo');
             $table->integer('user_id');
             $table->string('is_published');
+            $table->integer('featured');
             $table->timestamps();
         });
     }

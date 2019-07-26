@@ -15,7 +15,6 @@ class CreateArticlesSectionsTable extends Migration
     {
         Schema::create('articles_sections', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->bigIncrements('id');
             $table->integer('article_id');
             $table->integer('section_id');
             $table->timestamps();
