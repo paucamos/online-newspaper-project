@@ -41,7 +41,7 @@
             </button>
             <div class="navbar-collapse collapse" id="navbar-collapse">
                 <ul>
-                    <li><a href="#" class="nav-item active">INICI</a></li>
+                    <li><a href="#" class="nav-item active-link">INICI</a></li>
                     <li><a href="#" class="nav-item">POLÍTICA</a></li>
                     <li><a href="#" class="nav-item">MÓN</a></li>
                     <li><a href="#" class="nav-item">ESPORTS</a></li>
