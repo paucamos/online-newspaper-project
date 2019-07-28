@@ -21,7 +21,7 @@ class CreateArticlesTable extends Migration
             $table->string('photo');
             $table->integer('user_id');
             $table->string('is_published');
-            $table->integer('featured');
+            $table->integer('featured')->nullable();
             $table->timestamps();
         });
     }

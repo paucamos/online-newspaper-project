@@ -5,6 +5,9 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use Auth;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Redirect;
 
 class ArticlesController extends Controller
 {
@@ -50,7 +53,23 @@ class ArticlesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $input = Input::all();
+        $validation=Validator::make($input,Article::$rules);
+        if($validation->fails())
+        {
+            return(Redirect::back()->withErrors($validation)->withInput());
+        }
+        $data = [
+            'title'=>$request ->title,
+            'description'=>$request->description,
+            'body'=>$request->body,
+            'photo'=>$request->photo,
+            'user_id'=>$request->user_id,
+            'is_published'=>$request->is_published,
+            
+        ];
+        $articles=Article::create($data);
+        return(redirect('articles'));
     }
 
     /**
