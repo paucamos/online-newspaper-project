@@ -38,6 +38,9 @@
                     <li><a href="#" class="nav-item">USUARIS</a></li>
                 </ul>
             </div>
+            <div class="usuari">
+                Benvingut, {{Auth::user()->name}}
+            </div>
         </nav>
     </header>
 
