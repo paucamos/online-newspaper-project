@@ -1,0 +1,43 @@
+<?php
+
+use Illuminate\Database\Seeder;
+
+class SectionsTableSeeder extends Seeder
+{
+    /**
+     * Run the database seeds.
+     *
+     * @return void
+     */
+    public function run()
+    {
+        DB::table('sections')->insert([
+            'name' => "Política",
+            'description' => "Secció dedicada a la política",
+        ]);
+        DB::table('sections')->insert([
+            'name' => "Esports",
+            'description' => "Secció dedicada als esports",
+        ]);
+        DB::table('sections')->insert([
+            'name' => "Futbol",
+            'description' => "Secció dedicada al futbol",
+        ]);
+        DB::table('sections')->insert([
+            'name' => "Cultura",
+            'description' => "Secció dedicada a la cultura",
+        ]);
+        DB::table('sections')->insert([
+            'name' => "Economia",
+            'description' => "Secció dedicada a la economia",
+        ]);
+        DB::table('sections')->insert([
+            'name' => "Opinió",
+            'description' => "Secció dedicada a columnes d'opinió",
+        ]);
+        DB::table('sections')->insert([
+            'name' => "Social",
+            'description' => "Secció dedicada a noticies d'interes ciutadana",
+        ]);
+    }
+}
