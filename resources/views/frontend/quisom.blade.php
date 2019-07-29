@@ -2,8 +2,11 @@
 
 @section('content')
     <div class="container">
+        <div id="about-header">
+            <h1>Qui Som?</h1>
+        </div>
         <div id="image-container">
-            <img src="../images/quisom.jpg" alt="Qui Som?">
+            <img src="{{ asset('images/quisom.jpg') }}" alt="Qui Som?">
         </div>
         <div id="about-body">
             <p>
