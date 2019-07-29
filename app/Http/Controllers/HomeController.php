@@ -31,4 +31,8 @@ class HomeController extends Controller
         $article = Article::find($id);
         return view('frontend.article', compact('article'));
     }
+
+    public function quisom(){
+        return view('frontend.quisom');
+    }
 }
