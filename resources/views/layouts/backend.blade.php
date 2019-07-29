@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="jquery-3.4.1.js"></script>
+    <script src="js/jquery-3.4.1.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/backend.js') }}" defer></script>
 
@@ -50,5 +50,6 @@
             @yield('content')
         </div>
     </main>
+    @yield('jquery')
 </body>
 </html>

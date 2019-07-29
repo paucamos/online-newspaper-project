@@ -142,4 +142,12 @@ class ArticlesController extends Controller
     {
         //
     }
+
+    public function list() {
+        $input = $_GET['articleList'];
+        $filtres = Article::where('name', 'like', '%'.$input.'%')->get();
+
+        return view('backend.partial.ajax.filter', compact('filtres'));
+
+    }
 }
