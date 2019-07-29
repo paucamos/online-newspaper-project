@@ -7,5 +7,11 @@ $(document).ready(function(){
         $(this).addClass('active');
     });
 
+    $('#search-bar').keyup(function () {
+        var input = $('#search-bar').val();
+        console.log(input);
+    });
     
 });
+
+

@@ -2,6 +2,7 @@
 @extends('layouts.css')
 @section('content')
 
+    <input type="text" id="search-bar">
     @if(Auth::user()->user_type==1)
         <table class="table">
             <th>Titol</th><th>Description</th><th>Body</th><th>Photo</th><th>User_ID</th><th>Is_Published</th><th>Featured</th><th>Tools</th>
