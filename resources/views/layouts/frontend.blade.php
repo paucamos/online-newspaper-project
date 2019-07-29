@@ -48,7 +48,7 @@
                     <li><a href="#" class="nav-item">POLÍTICA</a></li>
                     <li><a href="#" class="nav-item">MÓN</a></li>
                     <li><a href="#" class="nav-item">ESPORTS</a></li>
-                    <li><a href="#" class="nav-item">CONTACTE</a></li>
+                    <li><a href="{{ route('quisom') }}" class="nav-item">QUI SOM</a></li>
                 </ul>
             </div>
         </nav>
