@@ -39,7 +39,7 @@
                 </ul>
             </div>
             <div class="usuari">
-                Benvingut, {{Auth::user()->name}}
+                Benvingut, <b>{{Auth::user()->name}}</b>
             </div>
         </nav>
     </header>
