@@ -23,6 +23,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/frontend.css') }}" rel="stylesheet">
     <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/article_page.css') }}" rel="stylesheet">
 </head>
 <body>
     <header id="header">
@@ -58,9 +59,19 @@
     </main>
 
     <footer id="footer">
-        <a href="" id="footer-title">
-            <h2>Diari localhost</h2>
-        </a>
+        <div id="footer-container">
+            <div id="footer-title">
+                <a href="">
+                    <h2>Diari localhost</h2>
+                </a>
+            </div>
+            <div id="footer-links">
+                <a href="">INICI</a>
+                <a href="">QUI SOM</a>
+                <p>EMAIL: diarilocalhost@gmail.com</p>
+                <p><a href="tel:972590000"></a>TELÈFON: 972590000</p>
+            </div>
+        </div>
         <div id="copyright">
             <p>Copyright &copy; Diari Localhost 2019</p>
         </div>
