@@ -192,12 +192,13 @@ a:hover {
     max-width: 100%;
     bottom: 0;
     margin-left: 50px;
-    margin-top: 50px;
+    margin-top: 10px;
     margin-bottom: 0;
 }
 
 #copyright p {
     margin: 0;
+    color: #b1b1b1;
 }
 
 
