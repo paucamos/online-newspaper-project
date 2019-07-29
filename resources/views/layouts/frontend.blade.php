@@ -17,10 +17,12 @@
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/frontend.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
 </head>
 <body>
     <header id="header">
@@ -41,7 +43,7 @@
             </button>
             <div class="navbar-collapse collapse" id="navbar-collapse">
                 <ul>
-                    <li><a href="#" class="nav-item active">INICI</a></li>
+                    <li><a href="#" class="nav-item active-link">INICI</a></li>
                     <li><a href="#" class="nav-item">POLÍTICA</a></li>
                     <li><a href="#" class="nav-item">MÓN</a></li>
                     <li><a href="#" class="nav-item">ESPORTS</a></li>
@@ -54,5 +56,15 @@
     <main class="py-4">
         @yield('content')
     </main>
+
+    <footer id="footer">
+        <a href="" id="footer-title">
+            <h2>Diari localhost</h2>
+        </a>
+        <div id="copyright">
+            <p>Copyright &copy; Diari Localhost 2019</p>
+        </div>
+    </footer>
+    
 </body>
 </html>
