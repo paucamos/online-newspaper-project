@@ -19,6 +19,9 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('/noticia/{article_id}', array('uses' => 'HomeController@showArticle', 'as' => 'showArticle'));
+Route::get('/quisom', array('uses' => 'HomeController@quisom', 'as' => 'quisom'));
+
 Route::group(["middleware"=>"auth"],function(){
     Route::get('/dashboard', 'DashboardController@home');
     Route::resource("/articles","ArticlesController");

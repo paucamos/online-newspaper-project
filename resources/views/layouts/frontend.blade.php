@@ -23,12 +23,13 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/frontend.css') }}" rel="stylesheet">
     <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/article_page.css') }}" rel="stylesheet">
 </head>
 <body>
     <header id="header">
         <div class="title-header row">
             <div class="col-lg-6 title-slogan">
-                <h1><a href="home.html">Diari Localhost</a></h1>
+                <h1><a href="<?php echo url('/') ?>">Diari Localhost</a></h1>
                 <p id="slogan">El millor diari de Catalunya</p>
             </div>
             <div class="col-lg-6 logo">
@@ -43,7 +44,7 @@
             </button>
             <div class="navbar-collapse collapse" id="navbar-collapse">
                 <ul>
-                    <li><a href="#" class="nav-item active-link">INICI</a></li>
+                    <li><a href="<?php echo url('/') ?>" class="nav-item active-link">INICI</a></li>
                     <li><a href="#" class="nav-item">POLÍTICA</a></li>
                     <li><a href="#" class="nav-item">MÓN</a></li>
                     <li><a href="#" class="nav-item">ESPORTS</a></li>
@@ -58,9 +59,19 @@
     </main>
 
     <footer id="footer">
-        <a href="" id="footer-title">
-            <h2>Diari localhost</h2>
-        </a>
+        <div id="footer-container">
+            <div id="footer-title">
+                <a href="<?php echo url('/') ?>">
+                    <h2>Diari localhost</h2>
+                </a>
+            </div>
+            <div id="footer-links">
+                <a href="<?php echo url('/') ?>">INICI</a>
+                <a href="{{ route('quisom') }}">QUI SOM</a>
+                <p>EMAIL: diarilocalhost@gmail.com</p>
+                <p><a href="tel:972590000"></a>TELÈFON: 972590000</p>
+            </div>
+        </div>
         <div id="copyright">
             <p>Copyright &copy; Diari Localhost 2019</p>
         </div>
