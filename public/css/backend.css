@@ -1,0 +1,103 @@
+/*************** MENU ***************/
+
+#header-backend{
+    max-width: 100%;
+    background: gray;
+}
+
+.navbar ul {
+    height: 100%;
+    margin: 0;
+}
+
+.navbar ul li {
+    list-style: none;
+    display: inline-block;
+    height: 100%;
+    margin: 0;
+}
+
+.navbar ul li a {
+    display: block;
+    color: white;
+    height: 100%;
+    width: 100%;
+    padding: 10px;
+    font-weight: 600;
+    transition: .3s;
+    outline: none;
+}
+
+.navbar ul li a:hover {
+    text-decoration: underline;
+}
+
+.active,
+.navbar ul li .active:hover {
+    text-decoration: underline;
+}
+
+/* MENU BUTTON ANIMATION */
+
+.navbar-toggler {
+    border: none;
+    background: transparent !important;
+}
+
+.navbar-toggler:focus{
+    outline: none;
+}
+
+.icon-bar {
+	width: 25px;
+	height: 3px;
+	background-color: white;
+	display: block;
+	transition: .2s;
+	margin-top: 4px
+}
+
+.navbar-toggler .top-bar {
+  transform: rotate(45deg);
+  transform-origin: 10% 10%;
+}
+
+.navbar-toggler .middle-bar {
+  opacity: 0;
+}
+
+.navbar-toggler .bottom-bar {
+  transform: rotate(-45deg);
+  transform-origin: 10% 90%;
+}
+
+.navbar-toggler.collapsed .top-bar {
+  transform: rotate(0);
+}
+
+.navbar-toggler.collapsed .middle-bar {
+  opacity: 1;
+}
+
+.navbar-toggler.collapsed .bottom-bar {
+  transform: rotate(0);
+}
+
+/*************** MOBILE ***************/
+
+@media (max-width: 991px) {
+
+    /********** MENU **********/
+
+    .navbar ul li {
+        display: block;
+        text-align: center;
+        margin: 5px 0;
+        border-radius: 2px;
+    }
+
+    .navbar-toggler {
+        margin-bottom: 10px;
+    }
+    
+}

@@ -30,7 +30,7 @@ class ArticlesController extends Controller
         {
             $articles = Article::get()->where('user_id',Auth::user()->id); 
         }
-        return view('articles.index',compact('articles'));
+        return view('backend.articles.index',compact('articles'));
     }
 
     /**
@@ -44,7 +44,7 @@ class ArticlesController extends Controller
     public function create()
     {
         $users = User::get();
-        return view('articles.create',compact('users'));
+        return view('backend.articles.create',compact('users'));
     }
 
     /**
