@@ -22,6 +22,25 @@
     <link href="{{ asset('css/backend.css') }}" rel="stylesheet">
 </head>
 <body>
+    <header id="header-backend">
+        <nav class="navbar navbar-expand-lg">
+            <button class="navbar-toggler collapsible-button collapsed" type="button" data-toggle="collapse"data-target="#navbar-collapse" aria-controls="navbar-collapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="icon-bar top-bar"></span>
+                <span class="icon-bar middle-bar"></span>
+                <span class="icon-bar bottom-bar"></span>
+            </button>
+            <div class="navbar-collapse collapse" id="navbar-collapse">
+                <ul>
+                    <li><a href="#" class="nav-item active">DASHBOARD</a></li>
+                    <li><a href="#" class="nav-item">ARTICLES</a></li>
+                    <li><a href="#" class="nav-item">SECCIONS</a></li>
+                    <li><a href="#" class="nav-item">REGIONS</a></li>
+                    <li><a href="#" class="nav-item">USUARIS</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
     <main class="py-4">
         <div class="container">
             @yield('content')
