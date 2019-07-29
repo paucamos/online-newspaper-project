@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\User;
 use Auth;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
@@ -42,7 +43,8 @@ class ArticlesController extends Controller
     
     public function create()
     {
-        return view('articles.create');
+        $users = User::get();
+        return view('articles.create',compact('users'));
     }
 
     /**
@@ -59,15 +61,39 @@ class ArticlesController extends Controller
         {
             return(Redirect::back()->withErrors($validation)->withInput());
         }
+
+            if(!file_exists("images"))
+            {
+                mkdir("images",0777);
+            }
+            else{
+                echo("La carpeta ja existeix </br>");
+            }
+                if(!file_exists("images/".basename($_FILES["photo"]["name"])))
+                {
+                    if(move_uploaded_file($_FILES["photo"]["tmp_name"],"images/".basename($_FILES["photo"]["name"])))
+                    {
+                        echo("Img pujada correctament");
+                    }
+                    else{
+                        echo("Error al pujar la foto");
+                    }
+                }
+                else{
+                    echo("La img ja existeix");
+                }
+                $photo = "images/".basename($_FILES["photo"]["name"]);
         $data = [
             'title'=>$request ->title,
             'description'=>$request->description,
             'body'=>$request->body,
-            'photo'=>$request->photo,
+            'photo'=>$photo,
             'user_id'=>$request->user_id,
             'is_published'=>$request->is_published,
+            'featured'=>0,
             
         ];
+        var_dump($request->is_published);
         $articles=Article::create($data);
         return(redirect('articles'));
     }
