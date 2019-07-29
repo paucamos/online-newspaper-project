@@ -10,7 +10,7 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Scripts -->
-    <script src="jquery-3.4.1.min.js"></script>
+    <script src="jquery-3.4.1.js"></script>
     <script src="{{ asset('js/app.js') }}" defer></script>
     <script src="{{ asset('js/frontend.js') }}" defer></script>
 
