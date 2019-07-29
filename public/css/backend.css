@@ -83,6 +83,14 @@
   transform: rotate(0);
 }
 
+.article {
+    width: 200px;
+    height: 100px;
+    border: 1px solid black;
+    margin-left: 10px;
+    padding: 5px;
+}
+
 /*************** MOBILE ***************/
 
 @media (max-width: 991px) {
