@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.backend')
 @extends('layouts.css')
 @section('content')
 
@@ -41,4 +41,20 @@
         @endforelse
         </table>
     @endif
+@endsection
+@section('jquery')
+    <script>
+        $(document).ready(function () {
+            $('#search-bar').keyup(function () {
+                var input = $('#search-bar').val();
+                $.ajax({
+                   url: ,
+                   method: 'GET',
+                   success: function (data, status) {
+                       
+                   } 
+                });
+            })
+        });
+    </script>
 @endsection
