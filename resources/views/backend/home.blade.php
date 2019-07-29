@@ -1,6 +1,6 @@
-@extends('layouts.frontend')
+@extends('layouts.backend')
 @section('content')
-    <div class="container">
+    <div class="contenidor">
         <div class="row">
             <div class="article">
                 <h3>Articles:</h3>
