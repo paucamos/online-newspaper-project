@@ -58,9 +58,12 @@
     </main>
 
     <footer id="footer">
-        <a href="">
-            <h2 id="footer-title">Diari localhost</h2>
+        <a href="" id="footer-title">
+            <h2>Diari localhost</h2>
         </a>
+        <div id="copyright">
+            <p>Copyright &copy; Diari Localhost 2019</p>
+        </div>
     </footer>
     
 </body>
