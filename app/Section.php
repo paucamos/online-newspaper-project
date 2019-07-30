@@ -16,7 +16,7 @@ class Section extends Model
     }
 
     public static $rules = array(
-        "title"=>"required",
+        "name"=>"required",
         "description"=>"required"
     );
 }
