@@ -93,7 +93,6 @@ class ArticlesController extends Controller
             'featured'=>0,
             
         ];
-        var_dump($request->is_published);
         $articles=Article::create($data);
         return(redirect('articles'));
     }
@@ -106,7 +105,8 @@ class ArticlesController extends Controller
      */
     public function show($id)
     {
-        //
+        $article=Article::find($id);
+        return view('backend.articles.show',compact('article'));
     }
 
     /**
@@ -117,7 +117,9 @@ class ArticlesController extends Controller
      */
     public function edit($id)
     {
-        //
+        $article=Article::find($id);
+        $users=User::get();
+        return view('backend.articles.edit',compact('article','users'));
     }
 
     /**
@@ -129,7 +131,48 @@ class ArticlesController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $input = Input::all();
+        $validation=Validator::make($input,Article::$rules);
+        if($validation->fails())
+        {
+            return(Redirect::back()->withErrors($validation)->withInput());
+        }
+
+            if(!file_exists("images"))
+            {
+                mkdir("images",0777);
+            }
+            else{
+                echo("La carpeta ja existeix </br>");
+            }
+                if(!file_exists("images/".basename($_FILES["photo"]["name"])))
+                {
+                    if(move_uploaded_file($_FILES["photo"]["tmp_name"],"images/".basename($_FILES["photo"]["name"])))
+                    {
+                        echo("Img pujada correctament");
+                    }
+                    else{
+                        echo("Error al pujar la foto");
+                    }
+                }
+                else{
+                    echo("La img ja existeix");
+                }
+                $photo = "images/".basename($_FILES["photo"]["name"]);
+
+        $data = [
+            'title'=>$request ->title,
+            'description'=>$request->description,
+            'body'=>$request->body,
+            'photo'=>$photo,
+            'user_id'=>$request->user_id,
+            'is_published'=>$request->is_published,
+            'featured'=>0,
+            
+        ];
+        $article = Article::find($id);
+        $article->update($data);
+        return (redirect('articles'));
     }
 
     /**
@@ -140,6 +183,18 @@ class ArticlesController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $article = Article::find($id);
+        $article->delete();
+        return (redirect('articles'));
+    }
+
+    public function disable($id)
+    {
+        $data = [
+            'is_published'=> 0
+        ];
+        $article = Article::find($id);
+        $article->update($data);
+        return (redirect('articles'));
     }
 }

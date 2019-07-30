@@ -9,7 +9,7 @@
         {!! $errors->first('title','<p class="error">* :message</p>') !!}
     Description {{Form::text('description',old('description'))}} <br>
         {!! $errors->first('description','<p class="error">* :message</p>') !!}
-    Body {{Form::text('body',old('body'))}} <br>
+    Body {{Form::textarea('body',old('body'))}} <br>
         {!! $errors->first('body','<p class="error">* :message</p>') !!}
     Photo {{Form::file('photo',old('photo'))}} <br>
         {!! $errors->first('photo','<p class="error">* :message</p>') !!}
