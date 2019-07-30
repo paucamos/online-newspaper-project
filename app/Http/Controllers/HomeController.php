@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Article;
+use App\Section;
+use App\Region;
 
 class HomeController extends Controller
 {
@@ -34,5 +36,17 @@ class HomeController extends Controller
 
     public function quisom(){
         return view('frontend.quisom');
+    }
+
+    public function sectionList($id){
+        $seccio = Section::find($id);
+        $articles = $seccio->articles()->get();
+        return view('frontend.sections_regions', compact('seccio','articles'));
+    }
+
+    public function regionList($id){
+        $regio = Region::find($id);
+        $articles = $regio->articles();
+        return view('frontend.sections_regions', compact('regio','articles'));
     }
 }

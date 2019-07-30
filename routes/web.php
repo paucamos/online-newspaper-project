@@ -21,6 +21,8 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/noticia/{article_id}', array('uses' => 'HomeController@showArticle', 'as' => 'showArticle'));
 Route::get('/quisom', array('uses' => 'HomeController@quisom', 'as' => 'quisom'));
+Route::get('/noticies/seccio/{section_id}', array('uses' => 'HomeController@sectionList', 'as' => 'sections'));
+Route::get('/noticies/regio/{region_id}', array('uses' => 'HomeController@regionList', 'as' => 'regions'));
 
 Route::group(["middleware"=>"auth"],function(){
     Route::get('/dashboard', 'DashboardController@home');
