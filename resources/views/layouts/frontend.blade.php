@@ -24,6 +24,7 @@
     <link href="{{ asset('css/frontend.css') }}" rel="stylesheet">
     <link href="{{ asset('css/homepage.css') }}" rel="stylesheet">
     <link href="{{ asset('css/article_page.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/seccions_regions.css') }}" rel="stylesheet">
 </head>
 <body>
     <header id="header">
@@ -45,9 +46,21 @@
             <div class="navbar-collapse collapse" id="navbar-collapse">
                 <ul>
                     <li><a href="<?php echo url('/') ?>" class="nav-item active-link">INICI</a></li>
-                    <li><a href="#" class="nav-item">POLÍTICA</a></li>
-                    <li><a href="#" class="nav-item">MÓN</a></li>
-                    <li><a href="#" class="nav-item">ESPORTS</a></li>
+                    <li><a href="{{ route('sections', [1]) }}" class="nav-item">POLÍTICA</a></li>
+                    <li><a href="{{ route('sections', [5]) }}" class="nav-item">ECONOMIA</a></li>
+                    <li><a href="{{ route('sections', [2]) }}" class="nav-item">ESPORTS</a></li>
+                    <li>
+                        <div class="dropdown">
+                            <span class="dropdown-title">REGIONS</span>
+                            <div class="dropdown-content">
+                                <ul>
+                                    <li><a href="{{ route('regions', [1]) }}" class="nav-item">GIRONA</a></li>
+                                    <li><a href="{{ route('sections', [2]) }}" class="nav-item">BARCELONA</a></li>
+                                    <li><a href="{{ route('sections', [2]) }}" class="nav-item">TARRAGONA</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </li>
                     <li><a href="{{ route('quisom') }}" class="nav-item">QUI SOM</a></li>
                 </ul>
             </div>

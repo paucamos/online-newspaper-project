@@ -64,7 +64,7 @@ a:hover {
     margin: 0;
 }
 
-.navbar ul li a {
+.navbar ul li a, .dropdown-title {
     display: block;
     color: white;
     height: 100%;
@@ -73,9 +73,10 @@ a:hover {
     font-weight: 600;
     transition: .3s;
     outline: none;
+    cursor: pointer;
 }
 
-.navbar ul li a:hover {
+.navbar ul li a:hover, .dropdown-title:hover {
     color: #F47857;
 }
 
@@ -83,6 +84,42 @@ a:hover {
 .navbar ul li .active-link:hover {
     color: white;
     background: #F47857;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+  
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #252926;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border: 1px solid gray;
+}
+
+.dropdown-content ul {
+    width: 100%;
+    padding: 0;
+}
+
+.dropdown-content ul li {
+    width: 100%;
+    border: none;
+    text-align: center;
+}
+
+.dropdown-content ul li a {
+    width: 100%;
+    border: none;
+    text-align: center;
+}
+  
+.dropdown:hover .dropdown-content {
+    display: block;
 }
 
 /* MENU BUTTON ANIMATION */
@@ -246,6 +283,15 @@ a:hover {
 
         .navbar-toggler {
             margin-bottom: 10px;
+        }
+
+        .dropdown {
+            width: 100%;
+        }
+
+        .dropdown-content {
+            width: 50%;
+            left: 25%;
         }
 
         /********** FOOTER **********/

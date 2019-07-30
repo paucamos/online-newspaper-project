@@ -46,7 +46,7 @@ class HomeController extends Controller
 
     public function regionList($id){
         $regio = Region::find($id);
-        $articles = $regio->articles();
+        $articles = $regio->articles()->get();
         return view('frontend.sections_regions', compact('regio','articles'));
     }
 }
