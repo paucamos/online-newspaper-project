@@ -16,7 +16,7 @@ class Region extends Model
     }
 
     public static $rules = array(
-        "name"=>"required",
+        "name"=>"required|unique:regions,name",
         "description"=>"required"
     );
 }
