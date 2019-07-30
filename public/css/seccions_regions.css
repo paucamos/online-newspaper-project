@@ -1,0 +1,54 @@
+.article-container {
+    width: 100%;
+    height: 350px;
+}
+
+.article-container .image-container {
+    height: 100%;
+    padding: 30px;
+}
+
+.article-container .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.article-container .body-container {
+    margin-top: 30px;
+}
+
+.article-container .body-container button {
+    outline: none;
+    background: none;
+    border: 2px solid #F47857;
+    border-radius: 5px;
+    padding: 0;
+}
+
+.article-container .body-container button a {
+    color: #F47857;
+    display: block;
+    padding: 5px;
+    height: 100%;
+    width: 100%;
+    transition: all .2s;
+}
+
+.article-container .body-container button a:hover {
+    color: white;
+    background: #F47857;
+}
+
+/*************** MOBILE ***************/
+
+    @media (max-width: 991px) {
+
+        .article-container {
+            height: auto;
+        }
+
+        .article-container .image-container {
+            display: none;
+        }
+    }

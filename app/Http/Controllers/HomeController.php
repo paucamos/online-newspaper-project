@@ -16,7 +16,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+        //
     }
 
     /**
@@ -38,15 +38,20 @@ class HomeController extends Controller
         return view('frontend.quisom');
     }
 
-    public function sectionList($id){
+    public function sectionList($id, Request $request){
         $seccio = Section::find($id);
-        $articles = $seccio->articles()->get();
-        return view('frontend.sections_regions', compact('seccio','articles'));
+        $articles = $seccio->articles()->paginate(10);
+
+        if ($request->ajax()) {
+            return view('ajax.noticies', compact('articles'));
+        }
+
+        return view('frontend.sections_regions', compact('articles'));
     }
 
     public function regionList($id){
         $regio = Region::find($id);
-        $articles = $regio->articles();
+        $articles = $regio->articles()->paginate(1);
         return view('frontend.sections_regions', compact('regio','articles'));
     }
 }
