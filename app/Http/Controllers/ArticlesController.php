@@ -30,7 +30,8 @@ class ArticlesController extends Controller
         {
             $articles = Article::get()->where('user_id',Auth::user()->id); 
         }
-        return view('backend.articles.index',compact('articles'));
+        $users = User::get();
+        return view('backend.articles.index',compact('articles','users'));
     }
 
     /**
@@ -43,7 +44,14 @@ class ArticlesController extends Controller
     
     public function create()
     {
-        $users = User::get();
+        if(Auth::user()->user_type==1)
+        {
+            $users = User::get();
+        }
+        else{
+
+            $users = User::find(Auth::user()->id);
+        }
         return view('backend.articles.create',compact('users'));
     }
 
@@ -118,7 +126,15 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article=Article::find($id);
-        $users=User::get();
+
+       if(Auth::user()->user_type==1)
+        {
+            $users = User::get();
+        }
+        else{
+
+            $users = User::find(Auth::user()->id);
+        }
         return view('backend.articles.edit',compact('article','users'));
     }
 
@@ -166,8 +182,7 @@ class ArticlesController extends Controller
             'body'=>$request->body,
             'photo'=>$photo,
             'user_id'=>$request->user_id,
-            'is_published'=>$request->is_published,
-            'featured'=>0,
+            'is_published'=>$request->is_published
             
         ];
         $article = Article::find($id);
@@ -194,10 +209,20 @@ class ArticlesController extends Controller
 
         return view('backend.partial.ajax.filter', compact('filtres'));
     }
+
     public function disable($id)
     {
         $data = [
             'is_published'=> 0
+        ];
+        $article = Article::find($id);
+        $article->update($data);
+        return (redirect('articles'));
+    }
+    public function enable($id)
+    {
+        $data = [
+            'is_published'=> 1
         ];
         $article = Article::find($id);
         $article->update($data);
