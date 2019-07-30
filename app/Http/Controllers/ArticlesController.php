@@ -210,6 +210,7 @@ class ArticlesController extends Controller
         return view('backend.partial.ajax.filter', compact('filtres'));
     }
 
+    
     public function disable($id)
     {
         $data = [
