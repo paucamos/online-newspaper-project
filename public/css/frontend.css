@@ -248,6 +248,17 @@ a:hover {
     margin-top: 30px;
 }
 
+/*************** PAGINATION ***************/
+
+.page-item .page-link {
+    color: #F47857;
+}
+
+.page-item.active .page-link {
+    background: #F47857;
+    border-color: #F47857;
+}
+
 /*************** MOBILE ***************/
 
     @media (max-width: 991px) {
