@@ -3,7 +3,7 @@
 @section('content')
 
     @if(Auth::user()->user_type==1)
-       <a href="{{route('regions.create')}}"><img src="../public/images/add.png"></a> Afegir Region
+       <a href="{{route('regions.create')}}"><img src="../public/images/add.png"></a> Add Region
         <table class="table">
             <th>Name</th><th>Description</th>
         @forelse($regions as $region)

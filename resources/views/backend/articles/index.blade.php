@@ -3,9 +3,9 @@
 @section('content')
 
     @if(Auth::user()->user_type==1)
-       <a href="{{route('articles.create')}}"><img src="../public/images/add.png"></a> Afegir Article
+       <a href="{{route('articles.create')}}"><img src="../public/images/add.png"></a> Add Article
         <table class="table">
-            <th>Titol</th><th>Description</th><th>Photo</th><th>User_ID</th><th>Is_Published</th><th>Featured</th><th>Tools</th>
+            <th>Title</th><th>Description</th><th>Photo</th><th>User_ID</th><th>Is_Published</th><th>Featured</th><th>Tools</th>
         @forelse($articles as $article)
             <tr>
                 <td>{{$article->title}}</td>

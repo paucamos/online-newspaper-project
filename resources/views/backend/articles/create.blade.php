@@ -2,7 +2,7 @@
 @extends('layouts.css')
 @section('content')
 
-<h1>Afegir Article</h1>
+<h1>Add Article</h1>
 {{Form::open(['url'=>route('articles.store'),'class'=>'Form','files' => true, 'enctype'=>'multipart/form-data'])}}
 
     Title {{Form::text('title',old('title'))}} <br>
