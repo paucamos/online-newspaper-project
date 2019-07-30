@@ -1,7 +1,7 @@
 @extends('layouts.backend')
 @extends('layouts.css')
 @section('content')
-
+    <input type="text" id="search-bar"><br>
     @if(Auth::user()->user_type==1)
        <a href="{{route('articles.create')}}"><img src="../public/images/add.png"></a> Afegir Article
         <table class="table">
@@ -75,7 +75,6 @@
         @endforelse
         </table>
     @endif
-    <input type="text" id="search-bar">
     <div id="contingut">
         @if(Auth::user()->user_type==1)
             <table class="table">
@@ -126,7 +125,8 @@
                     url: '{{route('listArticle')}}?articleList='+input,
                     method: 'GET',
                     success: function (data, status) {
-                       $('#contingut').html(data);
+                       $('#contingut').html(status);
+                       console.log(data);
                     }
                 });
             })
