@@ -37,5 +37,7 @@ Route::group(["middleware"=>"auth"],function(){
 
     Route::resource("/regions","RegionsController");
     Route::get("/regions/delete/{id}",array("uses"=>"RegionsController@destroy","as"=>"destroyregion"));
+
+    Route::resource("/journalists","JournalistsController");
 });
 
