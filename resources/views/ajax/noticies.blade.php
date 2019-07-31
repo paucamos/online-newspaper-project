@@ -16,7 +16,12 @@
     </div>
 @empty
     <div class="row">
-        <h2>No hi han noticies disponibles.</h2>
+        <div class="col-lg-12 no-available-articles">
+            <h2>No s'ha trobat cap notícia.</h2>
+            <div class="go-back-link">
+                <a href="<?php echo url()->previous() ?>">Torna enrere</a>
+            </div>
+        </div>
     </div>
 @endforelse
         
