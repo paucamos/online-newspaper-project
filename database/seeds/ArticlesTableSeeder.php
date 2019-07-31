@@ -27,7 +27,7 @@ class ArticlesTableSeeder extends Seeder
             A diferència dels dos partits anteriors, Unzué només va fer dos canvis després de la represa, amb l’entrada de Porro i Pachón per Maxi Villa i Lozano. El dibuix no es va alterar. La segona meitat va començar amb una falta directa executada per Chris Martin que Juan Carlos va rebutjar. El porter també es va haver d’estirar per desviar una centrada xut d’Anya (51’). El pas endavant dels rams va provocar problemes als gironins, que perdien la pilota amb rapidesa. El Derby County començava a merèixer el gol. Els d’Unzué eren incapaços de superar la pressió, i el domini local s’anava intensificant. Curiosament, però, el Girona va treure verí en la primera arribada que va generar. Va ser en una jugada ràpida de contraatac, en què Soni va quedar habilitat i va definir molt bé, amb un xut de sobrebot (60’). Tot va quedar en no res amb la lesió de Valery Fernández, que va quedar estès a la gespa i va marxar plorant, amb llitera i ovacionat pels espectadors.
             
             La lesió va deixar paralitzat el Girona. El Derby County, després d’un altre reguitzell de canvis, va tornar a insistir, però li va faltar l’encert que va tenir el Girona en una jugada puntual. Tot i que per celebrar, res de res.",
-            'photo' => "../images/gironafc.jpg",
+            'photo' => "gironafc.jpg",
             'user_id' => 3,
             'is_published' => 1,
             'featured' => 1
@@ -44,7 +44,7 @@ class ArticlesTableSeeder extends Seeder
             A més dels treballs d’excavació, els alumnes del curs d’arqueologia han pogut assistir a diverses conferències, participar en sessions pràctiques de prospecció geofísica i col·laborar en la realització de sondatges geològics previstos en el projecte per a la reconstrucció de l’evolució del paleoambient.
             
             El Museu d’Arqueologia d’Empúries , a més de ser visitable, ha programat aquests dies l’exposició temporal Bacus, les màscares del déu, que es mantindrà oberta fins al 15 de setembre.",
-            'photo' => "../images/empuries.jpg",
+            'photo' => "empuries.jpg",
             'user_id' => 2,
             'is_published' => 1,
             'featured' => 2
@@ -53,7 +53,7 @@ class ArticlesTableSeeder extends Seeder
             'title' => "Article sense publicar",
             'description' => "Descripcio de article sense publicar",
             'body' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula accumsan rutrum. Praesent eget pulvinar nulla. Fusce in felis sagittis, condimentum nisi et, placerat urna. Vivamus eu felis dapibus, fermentum neque quis, pretium ipsum. Aenean pellentesque odio eget ligula dictum, vel tincidunt elit mattis. Donec elementum sodales vehicula. Ut auctor ante at risus pretium molestie. Quisque eget tellus at nulla facilisis rutrum et vel leo. Sed sollicitudin pulvinar sem, eget fermentum mauris luctus ullamcorper. Integer vel metus ullamcorper, egestas diam sit amet, finibus sapien. Quisque ut pharetra ex, eu tempus metus. Cras id ultricies felis. Ut consequat erat ante, id viverra magna facilisis sit amet. Curabitur euismod finibus dolor mattis scelerisque. Proin elementum vulputate arcu, nec maximus odio malesuada quis.",
-            'photo' => "../images/lorem.jpg",
+            'photo' => "lorem.jpg",
             'user_id' => 1,
             'is_published' => 0,
             'featured' => 0
@@ -62,7 +62,7 @@ class ArticlesTableSeeder extends Seeder
             'title' => "Article sense publicar d'en Pepe",
             'description' => "Descripcio de article sense publicar",
             'body' => "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent vehicula accumsan rutrum. Praesent eget pulvinar nulla. Fusce in felis sagittis, condimentum nisi et, placerat urna. Vivamus eu felis dapibus, fermentum neque quis, pretium ipsum. Aenean pellentesque odio eget ligula dictum, vel tincidunt elit mattis. Donec elementum sodales vehicula. Ut auctor ante at risus pretium molestie. Quisque eget tellus at nulla facilisis rutrum et vel leo. Sed sollicitudin pulvinar sem, eget fermentum mauris luctus ullamcorper. Integer vel metus ullamcorper, egestas diam sit amet, finibus sapien. Quisque ut pharetra ex, eu tempus metus. Cras id ultricies felis. Ut consequat erat ante, id viverra magna facilisis sit amet. Curabitur euismod finibus dolor mattis scelerisque. Proin elementum vulputate arcu, nec maximus odio malesuada quis.",
-            'photo' => "../images/lorem.jpg",
+            'photo' => "lorem.jpg",
             'user_id' => 3,
             'is_published' => 1,
             'featured' => 0
