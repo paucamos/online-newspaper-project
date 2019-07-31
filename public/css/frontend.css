@@ -168,6 +168,12 @@ a:hover {
   transform: rotate(0);
 }
 
+/* SEARCH BAR */
+
+#search-form {
+    height: 100%;
+}
+
 /*************** FOOTER ***************/
 
 #footer {

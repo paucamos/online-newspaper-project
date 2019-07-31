@@ -64,7 +64,7 @@
                     <li><a href="{{ route('quisom') }}" class="nav-item {{ (request()->is('quisom*')) ? 'active-link' : '' }}">QUI SOM</a></li>
                 </ul>
 
-                <form action="buscar" method="POST" role="search">
+                {{ Form::open(['url' => route('buscar'), 'class' => 'Form']) }}
                     {{ csrf_field() }}
                     <div class="input-group">
                         <input type="text" class="form-control" name="title"
@@ -75,7 +75,7 @@
                             </button>
                         </span>
                     </div>
-                </form>
+                {{ Form::close() }}
 
             </div>
         </nav>

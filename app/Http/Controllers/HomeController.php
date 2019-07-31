@@ -55,7 +55,7 @@ class HomeController extends Controller
         }
     }
 
-    public function regionList($id){
+    public function regionList($id, Request $request){
         $regio = Region::find($id);
         $search = false;
 
