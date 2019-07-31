@@ -95,6 +95,11 @@
     padding: 5px;
 }
 
+#contingut i {
+    font-size: 30px;
+    margin-left: 10px;;
+    display: inline;
+}
 /*************** MOBILE ***************/
 
 @media (max-width: 991px) {
