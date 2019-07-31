@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.backend')
 @extends('layouts.css')
 @section('content')
 
@@ -13,7 +13,7 @@
         {!! $errors->first('body','<p class="error">* :message</p>') !!}
     Photo {{Form::file('photo')}} <img src="../../{{$article->photo}}"> <br>
         {!! $errors->first('photo','<p class="error">* :message</p>') !!}
-    User_ID <select name="user_id">
+    Journalist <select name="user_id">
             @if(Auth::user()->user_type==1)
                 @forelse($users as $user)
                     @if($user->user_type != 1)
@@ -30,14 +30,16 @@
                 <option value="{{$users->id}}">{{$users->name}}</option>
             @endif
             </select> <br>
-            @if($article->is_published == 0)
-                Is_Published <input type="radio" name="is_published" value="0" checked="checked"> No
-                <input type="radio" name="is_published" value="1"> Si<br>
-            @else
-                Is_Published <input type="radio" name="is_published" value="0" > No
-                <input type="radio" name="is_published" value="1" checked="checked"> Si<br>
-            @endif
+            <div class="custom-control custom-switch">
 
-    {{Form::submit('Enviar')}}
+                @if($article->is_published == 0)
+                    <input type="checkbox" class="custom-control-input" id="is_published" name="is_published">
+                @else
+                    <input type="checkbox" class="custom-control-input" id="is_published" name="is_published" checked="checked">
+                @endif
+                <label class="custom-control-label" for="is_published">Published</label>
+            </div>
+
+    {{Form::submit('Send')}}
 {{Form::close()}}
 @endsection

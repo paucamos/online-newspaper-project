@@ -28,8 +28,6 @@ class Article extends Model
         "title"=>"required",
         "description"=>"required",
         "body"=>"required",
-        "photo"=>"required",
         "user_id"=>"required",
-        "is_published"=>"required",
        );
 }
