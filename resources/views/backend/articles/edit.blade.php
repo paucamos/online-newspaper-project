@@ -2,7 +2,7 @@
 @extends('layouts.css')
 @section('content')
 
-<h1>Editar Article</h1>
+<h1>Edit Article</h1>
 {{Form::open(['url'=>route('articles.update',$article->id),'method'=>'PUT','class'=>'Form','files' => true, 'enctype'=>'multipart/form-data'])}}
 
     Title {{Form::text('title',$article->title)}} <br>

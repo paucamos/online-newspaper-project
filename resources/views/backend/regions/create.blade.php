@@ -1,7 +1,7 @@
 @extends('layouts.app')
 @extends('layouts.css')
 @section('content')
-<h1>Afegir Region</h1>
+<h1>Add Region</h1>
 
 {{Form::open(['url'=>route('regions.store'),'class'=>'Form'])}}
 

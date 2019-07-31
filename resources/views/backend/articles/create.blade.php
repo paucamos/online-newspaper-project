@@ -35,7 +35,7 @@
                         <label class="custom-control-label" for="switch1">Is_published</label>
                     </div>
 
-                        {{Form::submit('Enviar', ['class'=>'btn btn-primary'])}}
+                {{Form::submit('Enviar', ['class'=>'btn btn-primary'])}}
                 </div>
                 {{Form::close()}}
             </div>

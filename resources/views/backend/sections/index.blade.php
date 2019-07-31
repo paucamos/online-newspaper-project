@@ -3,7 +3,7 @@
 @section('content')
 
     @if(Auth::user()->user_type==1)
-       <a href="{{route('sections.create')}}"><img src="../public/images/add.png"></a> Afegir Section
+       <a href="{{route('sections.create')}}"><img src="../public/images/add.png"></a> Add Section
         <table class="table">
             <th>Name</th><th>Description</th>
         @forelse($sections as $section)

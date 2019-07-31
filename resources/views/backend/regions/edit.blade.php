@@ -2,7 +2,7 @@
 @extends('layouts.css')
 @section('content')
 
-<h1>Editar Region</h1>
+<h1>Edit Region</h1>
 {{Form::open(['url'=>route('regions.update',$region->id),'method'=>'PUT','class'=>'Form','files' => true, 'enctype'=>'multipart/form-data'])}}
 
     Title {{Form::text('name',$region->name)}} <br>
