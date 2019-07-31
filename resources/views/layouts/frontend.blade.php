@@ -64,14 +64,15 @@
                     <li><a href="{{ route('quisom') }}" class="nav-item {{ (request()->is('quisom*')) ? 'active-link' : '' }}">QUI SOM</a></li>
                 </ul>
 
-                {{ Form::open(['url' => route('buscar'), 'class' => 'Form']) }}
+                {{ Form::open(['url' => route('buscar'), 'class' => 'form']) }}
                     {{ csrf_field() }}
                     <div class="input-group">
                         <input type="text" class="form-control" name="title"
                             placeholder="Busca una notícia..."> 
                         <span class="input-group-btn">
                             <button type="submit" class="btn btn-default">
-                                <span class="glyphicon glyphicon-search"></span>
+                                {{-- <span class="glyphicon glyphicon-search"></span> --}}
+                                Buscar
                             </button>
                         </span>
                     </div>
