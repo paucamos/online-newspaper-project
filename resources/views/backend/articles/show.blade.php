@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.backend')
 @section('content')
     <div class="container">
         <div class="row">
@@ -24,8 +24,6 @@
                     <b>Updated_at</b> : {{$article->updated_at}} <br>
                 </div>
             </div>
-
-
         </div>
     </div>
 @endsection
