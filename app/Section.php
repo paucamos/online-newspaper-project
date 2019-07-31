@@ -16,7 +16,7 @@ class Section extends Model
     }
 
     public static $rules = array(
-        "name"=>"required",
+        "name"=>"required|unique:sections,name",
         "description"=>"required"
     );
 }
