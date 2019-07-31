@@ -46,17 +46,17 @@
             <div class="navbar-collapse collapse" id="navbar-collapse">
                 <ul>
                     <li><a href="<?php echo url('home') ?>" class="nav-item {{ (request()->is('home*')) ? 'active-link' : '' }}">INICI</a></li>
-                    <li><a href="{{ route('sections', [1]) }}" class="nav-item {{ (request()->is('noticies/seccio/1')) ? 'active-link' : '' }}">POLÍTICA</a></li>
-                    <li><a href="{{ route('sections', [5]) }}" class="nav-item {{ (request()->is('noticies/seccio/5')) ? 'active-link' : '' }}">ECONOMIA</a></li>
-                    <li><a href="{{ route('sections', [2]) }}" class="nav-item {{ (request()->is('noticies/seccio/2')) ? 'active-link' : '' }}">ESPORTS</a></li>
+                    <li><a href="{{ route('sections', ['section_id' => 1, 'section_name' => 'política']) }}" class="nav-item {{ (request()->is('noticies/seccio*política')) ? 'active-link' : '' }}">POLÍTICA</a></li>
+                    <li><a href="{{ route('sections', ['section_id' => 5, 'section_name' => 'economía']) }}" class="nav-item {{ (request()->is('noticies/seccio*economía')) ? 'active-link' : '' }}">ECONOMIA</a></li>
+                    <li><a href="{{ route('sections', ['section_id' => 2, 'section_name' => 'esports']) }}" class="nav-item {{ (request()->is('noticies/seccio*esports')) ? 'active-link' : '' }}">ESPORTS</a></li>
                     <li>
                         <div class="dropdown">
                             <span class="dropdown-title {{ (request()->is('noticies/regio*')) ? 'active-link' : '' }}">REGIONS</span>
                             <div class="dropdown-content">
                                 <ul>
-                                    <li><a href="{{ route('regions', [4]) }}" class="nav-item {{ (request()->is('noticies/regio/4')) ? 'active-link' : '' }}">GIRONA</a></li>
-                                    <li><a href="{{ route('regions', [3]) }}" class="nav-item {{ (request()->is('noticies/regio/3')) ? 'active-link' : '' }}">BANYOLES</a></li>
-                                    <li><a href="{{ route('regions', [1]) }}" class="nav-item {{ (request()->is('noticies/regio/1')) ? 'active-link' : '' }}">OLOT</a></li>
+                                    <li><a href="{{ route('regions', ['region_id' => 4, 'region_name' => 'girona']) }}" class="nav-item {{ (request()->is('noticies/regio*girona')) ? 'active-link' : '' }}">GIRONA</a></li>
+                                    <li><a href="{{ route('regions', ['region_id' => 3, 'region_name' => 'banyoles']) }}" class="nav-item {{ (request()->is('noticies/regio*banyoles')) ? 'active-link' : '' }}">BANYOLES</a></li>
+                                    <li><a href="{{ route('regions', ['region_id' => 1, 'region_name' => 'olot']) }}" class="nav-item {{ (request()->is('noticies/regio*olot')) ? 'active-link' : '' }}">OLOT</a></li>
                                 </ul>
                             </div>
                         </div>
