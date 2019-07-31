@@ -22,18 +22,7 @@
             @empty
                 
             @endforelse
-            {{-- @forelse ($article->sections as $section)
-                <h5>{{ $section->name }}</h5>
-            @empty
-                <p></p>
-            @endforelse
-
-            @forelse ($article->regions as $region)
-                <h5>{{ $region->name }}</h5>
-            @empty
-                <p></p>
-            @endforelse
-             --}}
+            
         </div>
         <div id="image-container">
             <img src="{{ $article->photo }}" alt="{{ $article->title }}" class="article-image">

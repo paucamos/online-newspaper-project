@@ -54,9 +54,9 @@
                             <span class="dropdown-title">REGIONS</span>
                             <div class="dropdown-content">
                                 <ul>
-                                    <li><a href="{{ route('regions', [1]) }}" class="nav-item">GIRONA</a></li>
-                                    <li><a href="{{ route('sections', [2]) }}" class="nav-item">BARCELONA</a></li>
-                                    <li><a href="{{ route('sections', [2]) }}" class="nav-item">TARRAGONA</a></li>
+                                    <li><a href="{{ route('regions', [4]) }}" class="nav-item">GIRONA</a></li>
+                                    <li><a href="{{ route('sections', [3]) }}" class="nav-item">BANYOLES</a></li>
+                                    <li><a href="{{ route('sections', [1]) }}" class="nav-item">OLOT</a></li>
                                 </ul>
                             </div>
                         </div>

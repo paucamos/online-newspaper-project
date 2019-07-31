@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('welcome');
     }
 
     public function showArticle($id){
@@ -40,18 +40,28 @@ class HomeController extends Controller
 
     public function sectionList($id, Request $request){
         $seccio = Section::find($id);
-        $articles = $seccio->articles()->paginate(10);
-
-        if ($request->ajax()) {
-            return view('ajax.noticies', compact('articles'));
+        
+        if($seccio){
+            $articles = $seccio->articles()->paginate(10);
+    
+            if ($request->ajax()) {
+                return view('ajax.noticies', compact('articles'));
+            }
+    
+            return view('frontend.sections_regions', compact('articles'));
+        }else{
+            return redirect('home');
         }
-
-        return view('frontend.sections_regions', compact('articles'));
     }
 
     public function regionList($id){
         $regio = Region::find($id);
-        $articles = $regio->articles()->paginate(1);
-        return view('frontend.sections_regions', compact('regio','articles'));
+
+        if($regio){
+            $articles = $regio->articles()->paginate(10);
+            return view('frontend.sections_regions', compact('regio','articles'));
+        }else{
+            return redirect('home');
+        }
     }
 }
