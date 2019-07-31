@@ -7,7 +7,7 @@
                 <h1>Add Article</h1>
             </div>
             <div class="col-md-12">
-                <label>Els camps del formulari amb <b>*</b> son requerits</label> </br>
+                <label>Els camps del formulari amb <b>*</b> son requerits</label> <br>
                 {{Form::open(['url'=>route('articles.store'),'class'=>'Form','files' => true, 'enctype'=>'multipart/form-data'])}}
                 <div class="form-group">
                     <b>*</b> Title {{Form::text('title',old('title'),['class'=>'form-control'])}} <br>
@@ -30,6 +30,20 @@
                             @else
                                 <option value="{{$users->id}}">{{$users->name}}</option>
                             @endif
+                        </select> <br>
+                        Sections (You can choose multiple options with control+click)
+                        <select name="sections[]" multiple class="custom-select">
+                        @forelse($sections as $section)
+                            <option value="{{$section->id}}">{{$section->name}}</option>
+                        @empty
+                        @endforelse
+                        </select> <br>
+                        Regions (You can choose multiple options with control+click)
+                        <select name="regions[]" multiple class="custom-select">
+                        @forelse($regions as $region)
+                            <option value="{{$region->id}}">{{$region->name}}</option>
+                        @empty
+                        @endforelse
                         </select> <br>
                     <div class="custom-control custom-switch">
                         <input type="checkbox" class="custom-control-input" id="is_published" name="is_published">

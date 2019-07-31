@@ -39,6 +39,20 @@
                 @endif
                 <label class="custom-control-label" for="is_published">Published</label>
             </div>
+            Sections (You can choose multiple options with control+click)
+            <select name="sections[]" multiple class="custom-select">
+            @forelse($sections as $section)
+                <option value="{{$section->id}}">{{$section->name}}</option>
+            @empty
+            @endforelse
+            </select> <br>
+            Regions (You can choose multiple options with control+click)
+                <select name="regions[]" multiple class="custom-select">
+                @forelse($regions as $region)
+                    <option value="{{$region->id}}">{{$region->name}}</option>
+                @empty
+                @endforelse
+            </select> <br>
 
     {{Form::submit('Send')}}
 {{Form::close()}}
