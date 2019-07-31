@@ -87,18 +87,20 @@
   transform: rotate(0);
 }
 
-.article {
-    width: 200px;
-    height: 100px;
-    border: 1px solid black;
-    margin-left: 10px;
-    padding: 5px;
+.card {
+    transition: 0.2s;
+    margin-bottom: 15px;
+    height: 160px;
 }
 
-#contingut i {
-    font-size: 30px;
-    margin-left: 10px;;
-    display: inline;
+.card:hover {
+    background-color: gray;
+    color: white;
+    user-select: none;
+}
+
+a {
+    text-decoration: none;
 }
 /*************** MOBILE ***************/
 
