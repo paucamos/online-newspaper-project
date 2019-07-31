@@ -46,6 +46,5 @@ class User extends Authenticatable
         "name"=>"required",
         "email"=>"required|email|unique:users,email",
         "password"=>"required",
-        "user_type"=>"required"
     );
 }

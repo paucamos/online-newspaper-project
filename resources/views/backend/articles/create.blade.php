@@ -4,20 +4,21 @@
     <div class="container">
         <div class="row">
             <div class="col-md-12">
-                <h1>Afegir Article</h1>
+                <h1>Add Article</h1>
             </div>
             <div class="col-md-12">
+                <label>Els camps del formulari amb <b>*</b> son requerits</label> </br>
                 {{Form::open(['url'=>route('articles.store'),'class'=>'Form','files' => true, 'enctype'=>'multipart/form-data'])}}
                 <div class="form-group">
-                        Title {{Form::text('title',old('title'),['class'=>'form-control'])}} <br>
+                    <b>*</b> Title {{Form::text('title',old('title'),['class'=>'form-control'])}} <br>
                         {!! $errors->first('title','<p class="error">* :message</p>') !!}
-                        Description {{Form::text('description',old('description'),['class'=>'form-control'])}} <br>
+                    <b>*</b> Description {{Form::text('description',old('description'),['class'=>'form-control'])}} <br>
                         {!! $errors->first('description','<p class="error">* :message</p>') !!}
-                        Body {{Form::textarea('body',old('body'),['class'=>'form-control'])}} <br>
+                    <b>*</b> Body {{Form::textarea('body',old('body'),['class'=>'form-control'])}} <br>
                         {!! $errors->first('body','<p class="error">* :message</p>') !!}
                         Photo {{Form::file('photo',old('photo'))}} <br>
                         {!! $errors->first('photo','<p class="error">* :message</p>') !!}
-                        User_ID <select name="user_id" class="custom-select">
+                    <b>*</b> Journalist <select name="user_id" class="custom-select">
                             @if(Auth::user()->user_type==1)
                                 @forelse($users as $user)
                                     @if($user->user_type != 1)
@@ -31,11 +32,11 @@
                             @endif
                         </select> <br>
                     <div class="custom-control custom-switch">
-                        <input type="checkbox" class="custom-control-input" id="switch1">
-                        <label class="custom-control-label" for="switch1">Is_published</label>
+                        <input type="checkbox" class="custom-control-input" id="is_published" name="is_published">
+                        <label class="custom-control-label" for="is_published">Published</label>
                     </div>
 
-                {{Form::submit('Enviar', ['class'=>'btn btn-primary'])}}
+                {{Form::submit('Send', ['class'=>'btn btn-primary'])}}
                 </div>
                 {{Form::close()}}
             </div>

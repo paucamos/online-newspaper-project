@@ -69,7 +69,6 @@ class ArticlesController extends Controller
         {
             return(Redirect::back()->withErrors($validation)->withInput());
         }
-
             if(!file_exists("images"))
             {
                 mkdir("images",0777);
@@ -90,17 +89,26 @@ class ArticlesController extends Controller
                 else{
                     echo("La img ja existeix");
                 }
-                $photo = "images/".basename($_FILES["photo"]["name"]);
+                $photo = "".basename($_FILES["photo"]["name"]);
+
+        if(isset($_POST["is_published"]))
+        {
+            $switch = 1;
+        }
+        else{
+            $switch = 0;
+        }
         $data = [
             'title'=>$request ->title,
             'description'=>$request->description,
             'body'=>$request->body,
             'photo'=>$photo,
             'user_id'=>$request->user_id,
-            'is_published'=>$request->is_published,
+            'is_published'=>$switch,
             'featured'=>0,
             
         ];
+
         $articles=Article::create($data);
         return(redirect('articles'));
     }
@@ -114,7 +122,8 @@ class ArticlesController extends Controller
     public function show($id)
     {
         $article=Article::find($id);
-        return view('backend.articles.show',compact('article'));
+        $user = User::find($article->user_id);
+        return view('backend.articles.show',compact('article','user'));
     }
 
     /**
@@ -174,15 +183,22 @@ class ArticlesController extends Controller
                 else{
                     echo("La img ja existeix");
                 }
-                $photo = "images/".basename($_FILES["photo"]["name"]);
+                $photo = "".basename($_FILES["photo"]["name"]);
 
+                if(isset($_POST["is_published"]))
+        {
+            $switch = 1;
+        }
+        else{
+            $switch = 0;
+        }
         $data = [
             'title'=>$request ->title,
             'description'=>$request->description,
             'body'=>$request->body,
             'photo'=>$photo,
             'user_id'=>$request->user_id,
-            'is_published'=>$request->is_published
+            'is_published'=>$switch,
             
         ];
         $article = Article::find($id);
@@ -205,9 +221,10 @@ class ArticlesController extends Controller
 
     public function list() {
         $input = $_GET['articleList'];
-        $filtres = Article::where('name', 'like', '%'.$input.'%')->get();
+        $filtres = Article::where('title', 'like', '%'.$input.'%')->get();
+        $users = User::get();
 
-        return view('backend.partial.ajax.filter', compact('filtres'));
+        return view('backend.partial.ajax.filter', compact('filtres', 'users'));
     }
 
     
@@ -222,11 +239,15 @@ class ArticlesController extends Controller
     }
     public function enable($id)
     {
-        $data = [
-            'is_published'=> 1
-        ];
+
         $article = Article::find($id);
-        $article->update($data);
+        if($article->photo != null)
+        {
+            $data = [
+                'is_published'=> 1
+            ];
+            $article->update($data);
+        }
         return (redirect('articles'));
     }
 }
