@@ -63,6 +63,20 @@
                     </li>
                     <li><a href="{{ route('quisom') }}" class="nav-item {{ (request()->is('quisom*')) ? 'active-link' : '' }}">QUI SOM</a></li>
                 </ul>
+
+                <form action="buscar" method="POST" role="search">
+                    {{ csrf_field() }}
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="title"
+                            placeholder="Busca una notícia..."> 
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+
             </div>
         </nav>
     </header>

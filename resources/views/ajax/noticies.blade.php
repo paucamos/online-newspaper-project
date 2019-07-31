@@ -1,7 +1,11 @@
 @forelse ($articles as $article)
     <div class="row article-container">
         <div class="col-lg-5 image-container">
-            <img src="../../{{ $article->photo }}" alt="{{ $article->title }}">
+            @if ($search)
+                <img src="{{ $article->photo }}" alt="{{ $article->title }}">
+            @else
+                <img src="../../{{ $article->photo }}" alt="{{ $article->title }}">                
+            @endif
         </div>
         <div class="col-lg-7 body-container">
             <h1>{{ $article->title }}</h1>

@@ -24,6 +24,8 @@ Route::get('/quisom', array('uses' => 'HomeController@quisom', 'as' => 'quisom')
 Route::get('/noticies/seccio/{section_id}/{section_name}', array('uses' => 'HomeController@sectionList', 'as' => 'sections'));
 Route::get('/noticies/regio/{region_id}/{region_name}', array('uses' => 'HomeController@regionList', 'as' => 'regions'));
 
+Route::any('/buscar', array('uses' => 'HomeController@search', 'as' => 'buscar'));
+
 Route::group(["middleware"=>"auth"],function(){
     Route::get('/dashboard', 'DashboardController@home');
     Route::resource("/articles","ArticlesController");

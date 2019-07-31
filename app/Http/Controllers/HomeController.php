@@ -40,15 +40,16 @@ class HomeController extends Controller
 
     public function sectionList($id, Request $request){
         $seccio = Section::find($id);
+        $search = false;
         
         if($seccio){
             $articles = $seccio->articles()->paginate(10);
     
             if ($request->ajax()) {
-                return view('ajax.noticies', compact('articles'));
+                return view('ajax.noticies', compact('articles','search'));
             }
     
-            return view('frontend.sections_regions', compact('articles'));
+            return view('frontend.sections_regions', compact('articles','search'));
         }else{
             return redirect('home');
         }
@@ -56,12 +57,29 @@ class HomeController extends Controller
 
     public function regionList($id){
         $regio = Region::find($id);
+        $search = false;
 
         if($regio){
             $articles = $regio->articles()->paginate(10);
-            return view('frontend.sections_regions', compact('regio','articles'));
+
+            if ($request->ajax()) {
+                return view('ajax.noticies', compact('articles','search'));
+            }
+
+            return view('frontend.sections_regions', compact('articles','search'));
         }else{
             return redirect('home');
         }
+    }
+
+    public function search(Request $request){
+        $articles = Article::where('title','LIKE','%'.$request->title.'%')->paginate(10);
+        $search = true;
+
+        if ($request->ajax()) {
+            return view('ajax.noticies', compact('articles','search'));
+        }
+
+        return view('frontend.sections_regions', compact('articles','search'));
     }
 }
