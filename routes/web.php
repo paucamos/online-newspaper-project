@@ -30,7 +30,7 @@ Route::group(["middleware"=>"auth"],function(){
     Route::get("/articles/delete/{id}",array("uses"=>"ArticlesController@destroy","as"=>"destroyarticle"));
     Route::get("/articles/disable/{id}",array("uses"=>"ArticlesController@disable","as"=>"disablearticle"));
     Route::get("/articles/enable/{id}",array("uses"=>"ArticlesController@enable","as"=>"enablearticle"));
-    Route::get("/articles/search", array("uses"=>"ArticlesController@aaaa", "as" => "listArticle"));
+    Route::get("/articles/search", array("uses"=>"ArticlesController@list", "as" => "listArticle"));
 
     Route::resource("/sections","SectionsController");
     Route::get("/sections/delete/{id}",array("uses"=>"SectionsController@destroy","as"=>"destroysection"));
