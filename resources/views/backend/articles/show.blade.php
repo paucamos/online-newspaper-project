@@ -20,6 +20,9 @@
                     <b>User</b> : {{$user->name}} <br>
                     <b>Published</b> : @if($article->is_published == 0) No @else Yes @endif <br>
                     <b>Featured</b> : @if($article->featured == 0) No @elseif($article->featured == 1) Featured @else Semi-Featured @endif <br>
+                    <b>Sections</b> : @foreach($articlesections as $articlesection) @if($articlesection->article_id == $article->id) @foreach($sections as $section) @if($section->id == $articlesection->section_id) @if($articlesection->id == $idarticlesections->id ) {{$section->name}}. @else {{$section->name}}, @endif @endif @endforeach @endif @endforeach <br>
+                    <b>Regions</b> : @foreach($articleregions as $articleregion) @if($articleregion->article_id == $article->id) @foreach($regions as $region) @if($region->id == $articleregion->region_id) @if($articleregion->id == $idarticleregions->id ) {{$region->name}}. @else {{$region->name}}, @endif  @endif @endforeach @endif @endforeach <br>
+
                     <b>Created_at</b> : {{$article->created_at}} <br>
                     <b>Updated_at</b> : {{$article->updated_at}} <br>
                 </div>

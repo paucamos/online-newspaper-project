@@ -16,7 +16,7 @@
                         {!! $errors->first('description','<p class="error">* :message</p>') !!}
                     <b>*</b> Body {{Form::textarea('body',old('body'),['class'=>'form-control'])}} <br>
                         {!! $errors->first('body','<p class="error">* :message</p>') !!}
-                        Photo {{Form::file('photo',old('photo'),array('id'=>'photo'))}} <br>
+                        Photo {{Form::file('photo',old('photo'),array('id'=>'photo'))}} <br> <br>
                     <b>*</b> Journalist 
                     <select name="user_id" class="custom-select">
                         @if(Auth::user()->user_type==1)
@@ -32,7 +32,7 @@
                         @endif
                     </select> <br>
                     @if(Auth::user()->user_type == 1)
-                        Featured <label id="help">(You need a photo first)</label>
+                        <br> Featured <label id="help">(You need a photo first)</label>
                         <select id="featured" name="featured" class="custom-select" disabled>
                             <option value="0">No</option>
                             <option value="1">Featured</option>
