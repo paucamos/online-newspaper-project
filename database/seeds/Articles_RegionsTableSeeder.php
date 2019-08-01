@@ -11,21 +11,45 @@ class Articles_RegionsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('articles_regions')->insert([
+        DB::table('article_region')->insert([
             'article_id' => 1,
             'region_id' => 4
         ]);
-        DB::table('articles_regions')->insert([
+        DB::table('article_region')->insert([
             'article_id' => 2,
+            'region_id' => 6
+        ]);
+        DB::table('article_region')->insert([
+            'article_id' => 4,
+            'region_id' => 6
+        ]);
+        DB::table('article_region')->insert([
+            'article_id' => 5,
+            'region_id' => 10
+        ]);
+        DB::table('article_region')->insert([
+            'article_id' => 6,
+            'region_id' => 10
+        ]);
+        DB::table('article_region')->insert([
+            'article_id' => 7,
+            'region_id' => 10
+        ]);
+        DB::table('article_region')->insert([
+            'article_id' => 8,
+            'region_id' => 10
+        ]);
+        DB::table('article_region')->insert([
+            'article_id' => 11,
             'region_id' => 4
         ]);
-        DB::table('articles_regions')->insert([
-            'article_id' => 3,
-            'region_id' => 2
+        DB::table('article_region')->insert([
+            'article_id' => 13,
+            'region_id' => 10
         ]);
-        DB::table('articles_regions')->insert([
-            'article_id' => 3,
-            'region_id' => 3
+        DB::table('article_region')->insert([
+            'article_id' => 14,
+            'region_id' => 10
         ]);
     }
 }

@@ -26,7 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        $featured_articles = Article::where('featured','1')->orderBy('created_at','desc')->limit(5)->get();
+        $semi_featured_articles_1 = Article::where('featured','2')->orderBy('created_at','desc')->limit(2)->get();
+        $semi_featured_articles_2 = Article::where('featured','2')->orderBy('created_at','desc')->offset(2)->limit(2)->get();
+        $secondary_news = Article::where('featured','0')->orderBy('created_at','desc')->limit(2)->get();
+        $recent_articles_1 = Article::where('featured','0')->orderBy('created_at','desc')->offset(2)->limit(3)->get();
+        $recent_articles_2 = Article::where('featured','0')->orderBy('created_at','desc')->offset(5)->limit(3)->get();
+        return view('welcome', compact('featured_articles','semi_featured_articles_1','semi_featured_articles_2','secondary_news','recent_articles_1','recent_articles_2'));
     }
 
     public function showArticle($id){

@@ -25,7 +25,7 @@
             
         </div>
         <div id="image-container">
-            <img src="{{ $article->photo }}" alt="{{ $article->title }}" class="article-image">
+            <img src="../images/{{ $article->photo }}" alt="{{ $article->title }}" class="article-image">
         </div>
         <div id="article-body">
             <p>{{ $article->body }}</p>

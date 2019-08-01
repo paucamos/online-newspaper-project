@@ -2,9 +2,9 @@
     <div class="row article-container">
         <div class="col-lg-5 image-container">
             @if ($search)
-                <img src="{{ $article->photo }}" alt="{{ $article->title }}">
+                <img src="images/{{ $article->photo }}" alt="{{ $article->title }}">
             @else
-                <img src="../../{{ $article->photo }}" alt="{{ $article->title }}">                
+                <img src="../../../images/{{ $article->photo }}" alt="{{ $article->title }}">                
             @endif
         </div>
         <div class="col-lg-7 body-container">

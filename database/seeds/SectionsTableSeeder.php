@@ -39,5 +39,21 @@ class SectionsTableSeeder extends Seeder
             'name' => "Social",
             'description' => "Secció dedicada a noticies d'interes ciutadana",
         ]);
+        DB::table('sections')->insert([
+            'name' => "Oci",
+            'description' => "Secció dedicada a noticies al oci",
+        ]);
+        DB::table('sections')->insert([
+            'name' => "Vida i estil",
+            'description' => "Secció dedicada a noticies a la vida i estil",
+        ]);
+        DB::table('sections')->insert([
+            'name' => "Tecnología",
+            'description' => "Secció dedicada a noticies a la tecnología",
+        ]);
+        DB::table('sections')->insert([
+            'name' => "Internacional",
+            'description' => "Secció dedicada a noticies internacionals",
+        ]);
     }
 }

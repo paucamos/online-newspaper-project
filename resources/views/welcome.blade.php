@@ -18,51 +18,19 @@
                             <li data-target="#carousel" data-slide-to="4"></li>
                         </ol>
                         <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <a href="">
-                                    <img class="d-block w-100" src="trump.jpg" alt="First slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h3>Títol Notícia 1</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptatum numquam reiciendis odio mollitia ipsa et laudantium, incidunt tempora, libero ratione enim qui sed velit modi earum recusandae vero voluptates!</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="">
-                                    <img class="d-block w-100" src="..." alt="First slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h3>...</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptatum numquam reiciendis odio mollitia ipsa et laudantium, incidunt tempora, libero ratione enim qui sed velit modi earum recusandae vero voluptates!</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="">
-                                    <img class="d-block w-100" src="..." alt="First slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h3>Títol Notícia 1</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptatum numquam reiciendis odio mollitia ipsa et laudantium, incidunt tempora, libero ratione enim qui sed velit modi earum recusandae vero voluptates!</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="">
-                                    <img class="d-block w-100" src="..." alt="First slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h3>Títol Notícia 1</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptatum numquam reiciendis odio mollitia ipsa et laudantium, incidunt tempora, libero ratione enim qui sed velit modi earum recusandae vero voluptates!</p>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="carousel-item">
-                                <a href="">
-                                    <img class="d-block w-100" src="..." alt="First slide">
-                                    <div class="carousel-caption d-none d-md-block">
-                                        <h3>Títol Notícia 1</h3>
-                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Quae voluptatum numquam reiciendis odio mollitia ipsa et laudantium, incidunt tempora, libero ratione enim qui sed velit modi earum recusandae vero voluptates!</p>
-                                    </div>
-                                </a>
-                            </div>
+                            @forelse ($featured_articles as $article)
+                                <div class="carousel-item @if ($loop->first) active @endif">
+                                    <a href="{{ route('showArticle', [$article->id]) }}">
+                                        <img class="d-block w-100" src="images/{{ $article->photo }}" alt="{{ $article->title }}">
+                                        <div class="carousel-caption d-none d-md-block">
+                                            <h3>{{ $article->title }}</h3>
+                                            <p>{{ $article->description }}</p>
+                                        </div>
+                                    </a>
+                                </div>
+                            @empty
+                                
+                            @endforelse
                         </div>
                         <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -81,146 +49,96 @@
                 </div>
                 <div id="semi-featured-rows-container">
                     <div class="row semi-featured-row">
-                        <div class="col-lg-6 news-block">
-                            <a href="#" class="news-link">
-                                <img src="ney.jpg" alt="First slide">
-                                <div class="news-caption">
-                                    <h3>Neymar torna al Barça</h3>
-                                    <p class="date">26/07/2019</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 news-block">
-                            <a href="#" class="news-link">
-                                <img src="trump.jpg" alt="First slide">
-                                <div class="news-caption">
-                                    <h3>Trump declara la guerra a Iran</h3>
-                                    <p class="date">26/07/2019</p>
-                                </div>
-                            </a>
-                        </div>
+                        @forelse ($semi_featured_articles_1 as $semi_article_1)
+                            <div class="col-lg-6 news-block">
+                                <a href="{{ route('showArticle', [$semi_article_1->id]) }}" class="news-link">
+                                    <img src="images/{{ $semi_article_1->photo }}" alt="{{ $semi_article_1->title }}">
+                                    <div class="news-caption">
+                                        <h3>{{ $semi_article_1->title }}</h3>
+                                        <p class="date">{{ $semi_article_1->created_at }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        @empty
+                        
+                        @endforelse
                     </div>
+
                     <div class="row semi-featured-row">
-                        <div class="col-lg-6 news-block">
-                            <a href="#" class="news-link">
-                                <img src="ney.jpg" alt="First slide">
-                                <div class="news-caption">
-                                    <h3>Títol Notícia 1</h3>
-                                    <p class="date">26/07/2019</p>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-lg-6 news-block">
-                            <a href="#" class="news-link">
-                                <img src="ney.jpg" alt="First slide">
-                                <div class="news-caption">
-                                    <h3>Títol Notícia 1</h3>
-                                    <p class="date">26/07/2019</p>
-                                </div>
-                            </a>
-                        </div>
+                        @forelse ($semi_featured_articles_2 as $semi_article_2)
+                            <div class="col-lg-6 news-block">
+                                <a href="{{ route('showArticle', [$semi_article_2->id]) }}" class="news-link">
+                                    <img src="images/{{ $semi_article_2->photo }}" alt="{{ $semi_article_2->title }}">
+                                    <div class="news-caption">
+                                        <h3>{{ $semi_article_2->title }}</h3>
+                                        <p class="date">{{ $semi_article_2->created_at }}</p>
+                                    </div>
+                                </a>
+                            </div>
+                        @empty
+                        
+                        @endforelse
                     </div>
                 </div>
             </div>
         </div>
 
         <div class="row">
-            <div class="col-lg-6">
-                <a href="">
-                    <div id="secondary-news-image-container">
-                        <img src="ney.jpg" alt="imatge noticia secundaria">
-                    </div>
-                    <div id="secondary-news-text">
-                        <h3>TÍTOL NOTICIA</h3>
-                        <p class="date">25/07/2019</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dicta magni impedit placeat. Sit, consectetur. Non maxime laudantium voluptatem quasi enim vitae qui, quibusdam quo, et recusandae impedit eveniet animi!</p>
-                    </div>
-                </a>
-            </div>
-            <div class="col-lg-6">
-                <a href="">
-                    <div id="secondary-news-image-container">
-                        <img src="ney.jpg" alt="imatge noticia secundaria">
-                    </div>
-                    <div id="secondary-news-text">
-                        <h3>TÍTOL NOTICIA</h3>
-                        <p class="date">25/07/2019</p>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea dicta magni impedit placeat. Sit, consectetur. Non maxime laudantium voluptatem quasi enim vitae qui, quibusdam quo, et recusandae impedit eveniet animi!</p>
-                    </div>
-                </a>
-            </div>
+            @forelse ($secondary_news as $secondary_article)
+                <div class="col-lg-6">
+                    <a href="{{ route('showArticle', [$secondary_article->id]) }}">
+                        <div id="secondary-news-image-container">
+                            <img src="images/{{ $secondary_article->photo }}" alt="{{ $secondary_article->title }}">
+                        </div>
+                        <div id="secondary-news-text">
+                            <h3>{{ $secondary_article->title }}</h3>
+                            <p class="date">{{ $article->created_at }}</p>
+                            <p>{{ $secondary_article->description }}</p>
+                        </div>
+                    </a>
+                </div>
+            @empty
+                
+            @endforelse
         </div>
         <div class="row">
             <div class="col-lg-6">
-                <div class="older-news">
-                    <a href="">
-                        <div class="image-container">
-                            <img src="ney.jpg" alt="Imatge neymar">
-                        </div>
-                        <div class="text-container">
-                            <h4>Títol notícia</h4>
-                            <p class="date">26/07/2019</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="older-news">
-                    <a href="">
-                        <div class="image-container">
-                            <img src="ney.jpg" alt="Imatge neymar">
-                        </div>
-                        <div class="text-container">
-                            <h4>Títol notícia</h4>
-                            <p class="date">26/07/2019</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="older-news">
-                    <a href="">
-                        <div class="image-container">
-                            <img src="ney.jpg" alt="Imatge neymar">
-                        </div>
-                        <div class="text-container">
-                            <h4>Títol notícia</h4>
-                            <p class="date">26/07/2019</p>
-                        </div>
-                    </a>
-                </div>
+                @forelse ($recent_articles_1 as $recent_article_1)
+                    <div class="older-news">
+                        <a href="{{ route('showArticle', [$recent_article_1->id]) }}">
+                            <div class="image-container">
+                                <img src="images/{{ $recent_article_1->photo }}" alt="{{ $recent_article_1->title }}">
+                            </div>
+                            <div class="text-container">
+                                <h4>{{ $recent_article_1->title }}</h4>
+                                <p class="date">{{ $recent_article_1->created_at }}</p>
+                            </div>
+                        </a>
+                    </div>
+                @empty
+
+                @endforelse
             </div>
+                
+
             <div class="col-lg-6">
-                <div class="older-news">
-                    <a href="">
-                        <div class="image-container">
-                            <img src="ney.jpg" alt="Imatge neymar">
-                        </div>
-                        <div class="text-container">
-                            <h4>Títol notícia</h4>
-                            <p class="date">26/07/2019</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="older-news">
-                    <a href="">
-                        <div class="image-container">
-                            <img src="ney.jpg" alt="Imatge neymar">
-                        </div>
-                        <div class="text-container">
-                            <h4>Títol notícia</h4>
-                            <p class="date">26/07/2019</p>
-                        </div>
-                    </a>
-                </div>
-                <div class="older-news">
-                    <a href="">
-                        <div class="image-container">
-                            <img src="ney.jpg" alt="Imatge neymar">
-                        </div>
-                        <div class="text-container">
-                            <h4>Títol notícia</h4>
-                            <p class="date">26/07/2019</p>
-                        </div>
-                    </a>
-                </div>
+                @forelse ($recent_articles_2 as $recent_article_2)
+                    <div class="older-news">
+                        <a href="{{ route('showArticle', [$recent_article_2->id]) }}">
+                            <div class="image-container">
+                                <img src="images/{{ $recent_article_2->photo }}" alt="{{ $recent_article_2->title }}">
+                            </div>
+                            <div class="text-container">
+                                <h4>{{ $recent_article_2->title }}</h4>
+                                <p class="date">{{ $recent_article_2->created_at }}</p>
+                            </div>
+                        </a>
+                    </div>
+                @empty
+                
+                @endforelse
             </div>
+
         </div>
     </div>
 
