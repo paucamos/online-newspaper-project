@@ -1,5 +1,4 @@
 @if(Auth::user()->user_type==1)
-    <a href="{{route('articles.create')}}"><img src="../public/images/add.png"></a> Add Article
     <table class="table">
         <th>Title</th><th>Description</th><th>Photo</th><th>Journalist</th><th>Published</th><th>Featured</th><th>Tools</th>
         @forelse($filtres as $article)
@@ -16,18 +15,20 @@
                 @if($article->is_published == 0)
                     <td>No</td>
                 @else
-                    <td>Si</td>
+                    <td>Yes</td>
                 @endif
                 @if($article->featured == 0)
                     <td>No</td>
                 @elseif($article->featured == 1)
-                    <td>Destacat</td>
+                    <td>Featured</td>
                 @else
-                    <td>Semi-destacat</td>
+                    <td>Semi-featured</td>
                 @endif
 
 
-                <td><a href="{{route('articles.show',$article->id)}}"><img src="../public/images/show.jpg" title="show"></a><a href="{{route('articles.edit',$article->id)}}"><img src="../public/images/edit.png" title="edit"></a>@if($article->is_published ==1 )<a href="{{route('disablearticle',$article->id)}}"><img src="../public/images/disable.png" title="disable"></a>@else <a href="{{route('enablearticle',$article->id)}}"><img src="../public/images/enable.png" title="enable"></a> @endif<a href="{{route('destroyarticle',$article->id)}}"><img src="../public/images/delete.png" title="delete"></a></td>
+                <td>
+                    <a href="{{route('articles.show',$article->id)}}"><i class="fas fa-search"></i></a><a href="{{route('articles.edit',$article->id)}}"><i class="fas fa-pencil-alt"></i></a>@if($article->is_published ==1 )<a href="{{route('disablearticle',$article->id)}}"><i class="fas fa-ban"></i></a>@else<a class="linkenable" href="{{route('enablearticle',$article->id)}}"><i class="fas fa-check-circle"></i></a> @endif<a href="{{route('destroyarticle',$article->id)}}"><i class="fas fa-trash"></i></a>
+                </td>
             </tr>
         @empty
             <h1>Empty</h1>

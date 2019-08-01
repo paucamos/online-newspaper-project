@@ -37,12 +37,14 @@
                 </div>
 
                 <div class="col-sm-6">
+                    <a href="{{route('journalists.index')}}">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="card-title">Periodistes</h5>
                             <p class="card-text">{{$numPeriodistes}} periodistes registrats.</p>
                         </div>
                     </div>
+                    </a>
                 </div>
 
             </div>

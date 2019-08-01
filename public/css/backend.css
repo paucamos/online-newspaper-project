@@ -102,6 +102,9 @@
 a {
     text-decoration: none;
 }
+a i {
+    margin-left: 5px;
+}
 /*************** MOBILE ***************/
 
 @media (max-width: 991px) {

@@ -139,4 +139,11 @@ class RegionsController extends Controller
         $region->delete();
         return (redirect('regions'));
     }
+
+    public function list() {
+        $input = $_GET['listRegion'];
+        $filtres = Region::where('name', 'like', '%'.$input.'%')->get();
+
+        return view('backend.partial.ajax.regions', compact('filtres'));
+    }
 }

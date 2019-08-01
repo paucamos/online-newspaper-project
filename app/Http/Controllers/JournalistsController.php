@@ -95,4 +95,12 @@ class JournalistsController extends Controller
     {
         //
     }
+
+    public function list() {
+        $input = $_GET['listJournalists'];
+        $filtres = User::where('name', 'like', '%'.$input.'%')->get();
+        $articles = Article::get();
+
+        return view('backend.partial.ajax.journalists', compact('filtres', 'articles'));
+    }
 }

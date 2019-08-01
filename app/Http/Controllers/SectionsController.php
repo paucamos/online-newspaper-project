@@ -141,4 +141,11 @@ class SectionsController extends Controller
         $section->delete();
         return (redirect('sections'));
     }
+
+    public function list() {
+        $input = $_GET['sectionList'];
+        $filtres = Section::where('name', 'like', '%'.$input.'%')->get();
+
+        return view('backend.partial.ajax.sections', compact('filtres'));
+    }
 }

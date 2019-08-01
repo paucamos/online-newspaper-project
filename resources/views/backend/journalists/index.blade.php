@@ -6,12 +6,12 @@
         <div class="input-group-prepend">
             <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
         </div>
-        <input id="search-bar" type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+        <input id="search-bar-users" type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
     </div>
 
     <div id="contingut">
     @if(Auth::user()->user_type==1)
-
+<div id="contingut">
         <table class="table">
             <th>Name</th><th>E-mail</th><th>Articles</th>
         @forelse($users as $user)
@@ -31,6 +31,7 @@
         @empty
         @endforelse
         </table>
+</div>
     @endif
     </div>
 @endsection
@@ -38,10 +39,10 @@
     <script>
 
         $(document).ready(function () {
-            $('#search-bar').keyup(function () {
-                var input = $('#search-bar').val();
+            $('#search-bar-users').keyup(function () {
+                var input = $('#search-bar-users').val();
                 $.ajax({
-                    url: '{{route('listArticle')}}?articleList='+input,
+                    url: '{{route('listJournalists')}}?listJournalists='+input,
                     method: 'GET',
                     success: function (data, status) {
                        $('#contingut').html(data);

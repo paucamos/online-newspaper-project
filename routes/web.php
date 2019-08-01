@@ -30,19 +30,25 @@ Route::get('/noticies/seccio/{section_id}/{section_name}', array('uses' => 'Home
 Route::get('/noticies/regio/{region_id}/{region_name}', array('uses' => 'HomeController@regionList', 'as' => 'regions'));
 
 Route::group(["middleware"=>"auth"],function(){
-    Route::get('/dashboard', 'DashboardController@home');
+    Route::get('/logout', array('uses'=>'DashboardController@logout', 'as'=>'logout'));
+    Route::get('/dashboard', array('uses' => 'DashboardController@home', 'as' => 'showDashboard'));
     Route::get("/articles/delete/{id}",array("uses"=>"ArticlesController@destroy","as"=>"destroyarticle"));
     Route::get("/articles/disable/{id}",array("uses"=>"ArticlesController@disable","as"=>"disablearticle"));
     Route::get("/articles/enable/{id}",array("uses"=>"ArticlesController@enable","as"=>"enablearticle"));
     Route::get("/articles/search", array("uses"=>"ArticlesController@list", "as" => "listArticle"));
     Route::resource("/articles","ArticlesController");
 
-    Route::resource("/sections","SectionsController");
+    Route::get('/sections/search', array('uses'=>'SectionsController@list', 'as'=>'listSection'));
     Route::get("/sections/delete/{id}",array("uses"=>"SectionsController@destroy","as"=>"destroysection"));
+    Route::resource("/sections","SectionsController");
 
-    Route::resource("/regions","RegionsController");
+    Route::get('/regions/search', array('uses'=>'RegionsController@list', 'as'=>'listRegion'));
     Route::get("/regions/delete/{id}",array("uses"=>"RegionsController@destroy","as"=>"destroyregion"));
+    Route::resource("/regions","RegionsController");
 
+    Route::get('/journalists/search', array('uses'=>'JournalistsController@list', 'as'=>'listJournalists'));
     Route::resource("/journalists","JournalistsController");
+
+
 });
 
