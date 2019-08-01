@@ -45,7 +45,7 @@ class Articles_RegionsTableSeeder extends Seeder
         ]);
         DB::table('article_region')->insert([
             'article_id' => 13,
-            'region_id' => 10
+            'region_id' => 4
         ]);
         DB::table('article_region')->insert([
             'article_id' => 14,

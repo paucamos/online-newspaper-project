@@ -55,8 +55,8 @@
                             <div class="dropdown-content">
                                 <ul>
                                     <li><a href="{{ route('regions', ['region_id' => 4, 'region_name' => 'girona']) }}" class="nav-item {{ (request()->is('noticies/regio*girona')) ? 'active-link' : '' }}">GIRONA</a></li>
-                                    <li><a href="{{ route('regions', ['region_id' => 3, 'region_name' => 'banyoles']) }}" class="nav-item {{ (request()->is('noticies/regio*banyoles')) ? 'active-link' : '' }}">BANYOLES</a></li>
-                                    <li><a href="{{ route('regions', ['region_id' => 1, 'region_name' => 'olot']) }}" class="nav-item {{ (request()->is('noticies/regio*olot')) ? 'active-link' : '' }}">OLOT</a></li>
+                                    <li><a href="{{ route('regions', ['region_id' => 10, 'region_name' => 'banyoles']) }}" class="nav-item {{ (request()->is('noticies/regio*barcelona')) ? 'active-link' : '' }}">BARCELONA</a></li>
+                                    <li><a href="{{ route('regions', ['region_id' => 6, 'region_name' => 'olot']) }}" class="nav-item {{ (request()->is('noticies/regio*alt%20empordà')) ? 'active-link' : '' }}">ALT EMPORDÀ</a></li>
                                 </ul>
                             </div>
                         </div>
