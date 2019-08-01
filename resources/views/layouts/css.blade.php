@@ -6,4 +6,10 @@
     .error{
         color:red;
     }
+    h1{
+        text-align: center;
+    }
+    divsearch{
+        margin-top:100px;
+    }
 </style>

@@ -11,19 +11,19 @@ class Articles_SectionsTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('articles_sections')->insert([
+        DB::table('article_section')->insert([
             'article_id' => 1,
             'section_id' => 2
         ]);
-        DB::table('articles_sections')->insert([
+        DB::table('article_section')->insert([
             'article_id' => 1,
             'section_id' => 3
         ]);
-        DB::table('articles_sections')->insert([
+        DB::table('article_section')->insert([
             'article_id' => 2,
             'section_id' => 7
         ]);
-        DB::table('articles_sections')->insert([
+        DB::table('article_section')->insert([
             'article_id' => 3,
             'section_id' => 6
         ]);
