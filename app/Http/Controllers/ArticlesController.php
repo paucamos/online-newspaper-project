@@ -9,6 +9,7 @@ use App\Region;
 use App\Section;
 use Auth;
 use DB;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
@@ -135,7 +136,9 @@ class ArticlesController extends Controller
         {
             DB::table('article_section')->insert([
                 'article_id'=> $articles->id,
-                'section_id'=> $section
+                'section_id'=> $section,
+                "created_at" => Carbon::now(), # new \Datetime()
+                "updated_at" => Carbon::now(),  # new \Datetime()
             ]);
 
         }
@@ -143,7 +146,9 @@ class ArticlesController extends Controller
         {
             DB::table('article_region')->insert([
                 'article_id'=> $articles->id,
-                'region_id'=> $region
+                'region_id'=> $region,
+                "created_at" =>  Carbon::now(), # new \Datetime()
+                "updated_at" =>  Carbon::now(),  # new \Datetime()
             ]);
 
         }
@@ -160,7 +165,16 @@ class ArticlesController extends Controller
     {
         $article=Article::find($id);
         $user = User::find($article->user_id);
-        return view('backend.articles.show',compact('article','user'));
+        $sections = Section::get();
+        $regions = Region::get();
+        $articlesections = DB::table('article_section')->get();
+        $articleregions = DB::table('article_region')->get();
+
+        $idarticlesections = DB::table('article_section')->orderBy('id', 'desc')->first();
+        $idarticleregions = DB::table('article_region')->orderBy('id', 'desc')->first();
+
+
+        return view('backend.articles.show',compact('article','user','sections','regions','articlesections','articleregions','idarticlesections','idarticleregions'));
     }
 
     /**
@@ -240,6 +254,7 @@ class ArticlesController extends Controller
                 'user_id'=>$request->user_id,
                 'is_published'=>$switch,
                 
+                
             ];
         }
         else
@@ -267,7 +282,9 @@ class ArticlesController extends Controller
             {
                 DB::table('article_section')->insert([
                     'article_id'=> $article->id,
-                    'section_id'=> $section
+                    'section_id'=> $section,
+                    "created_at" => Carbon::now(), # new \Datetime()
+                    "updated_at" => Carbon::now(),  # new \Datetime()
                 ]);
             }
         }
@@ -281,7 +298,9 @@ class ArticlesController extends Controller
             {
                 DB::table('article_region')->insert([
                     'article_id'=> $article->id,
-                    'region_id'=> $region
+                    'region_id'=> $region,
+                    "created_at" => Carbon::now(), # new \Datetime()
+                    "updated_at" => Carbon::now(),  # new \Datetime()
                 ]);
 
             }

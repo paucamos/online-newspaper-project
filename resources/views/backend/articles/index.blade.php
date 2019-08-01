@@ -49,7 +49,8 @@
 
 
                 <td>
-                    <a href="{{route('articles.show',$article->id)}}"><i class="fas fa-search"></i></a><a href="{{route('articles.edit',$article->id)}}"><i class="fas fa-pencil-alt"></i></a>@if($article->is_published ==1 )<a href="{{route('disablearticle',$article->id)}}"><i class="fas fa-ban"></i></a>@else <a class="linkenable" href="{{route('enablearticle',$article->id)}}"><i class="fas fa-check-circle"></i></a> @endif<a href="{{route('destroyarticle',$article->id)}}"><i class="fas fa-trash"></i></a></td>
+                        <a href="{{route('articles.show',$article->id)}}"><i class="fas fa-search"></i></a><a href="{{route('articles.edit',$article->id)}}"><i class="fas fa-pencil-alt"></i></a>@if($article->is_published ==1 )<a href="{{route('disablearticle',$article->id)}}"><i class="fas fa-ban"></i></a>@else<a class="linkenable" href="{{route('enablearticle',$article->id)}}"><i class="fas fa-check-circle"></i></a> @endif<a href="{{route('destroyarticle',$article->id)}}"><i class="fas fa-trash"></i></a>
+                </td>
             </tr>
         @empty
         <h1>Empty</h1>
