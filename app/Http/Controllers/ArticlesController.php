@@ -9,6 +9,7 @@ use App\Region;
 use App\Section;
 use Auth;
 use DB;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
@@ -103,23 +104,41 @@ class ArticlesController extends Controller
         else{
             $switch = 0;
         }
-        $data = [
-            'title'=>$request ->title,
-            'description'=>$request->description,
-            'body'=>$request->body,
-            'photo'=>$photo,
-            'user_id'=>$request->user_id,
-            'is_published'=>$switch,
-            'featured'=>0,
-            
-        ];
+        if(Auth::user()->user_type==1)
+        {
+            $data = [
+                'title'=>$request ->title,
+                'description'=>$request->description,
+                'body'=>$request->body,
+                'photo'=>$photo,
+                'user_id'=>$request->user_id,
+                'is_published'=>$switch,
+                'featured'=>$request->featured,
+                
+            ];
+        }
+        else
+        {
+            $data = [
+                'title'=>$request ->title,
+                'description'=>$request->description,
+                'body'=>$request->body,
+                'photo'=>$photo,
+                'user_id'=>$request->user_id,
+                'is_published'=>$switch,
+                'featured'=>0,
+                
+            ];
+        }
         $articles=Article::create($data);
 
         foreach ($_POST["sections"] as $section)
         {
             DB::table('article_section')->insert([
                 'article_id'=> $articles->id,
-                'section_id'=> $section
+                'section_id'=> $section,
+                "created_at" => Carbon::now(), # new \Datetime()
+                "updated_at" => Carbon::now(),  # new \Datetime()
             ]);
 
         }
@@ -127,7 +146,9 @@ class ArticlesController extends Controller
         {
             DB::table('article_region')->insert([
                 'article_id'=> $articles->id,
-                'region_id'=> $region
+                'region_id'=> $region,
+                "created_at" =>  Carbon::now(), # new \Datetime()
+                "updated_at" =>  Carbon::now(),  # new \Datetime()
             ]);
 
         }
@@ -144,7 +165,16 @@ class ArticlesController extends Controller
     {
         $article=Article::find($id);
         $user = User::find($article->user_id);
-        return view('backend.articles.show',compact('article','user'));
+        $sections = Section::get();
+        $regions = Region::get();
+        $articlesections = DB::table('article_section')->get();
+        $articleregions = DB::table('article_region')->get();
+
+        $idarticlesections = DB::table('article_section')->orderBy('id', 'desc')->first();
+        $idarticleregions = DB::table('article_region')->orderBy('id', 'desc')->first();
+
+
+        return view('backend.articles.show',compact('article','user','sections','regions','articlesections','articleregions','idarticlesections','idarticleregions'));
     }
 
     /**
@@ -215,33 +245,65 @@ class ArticlesController extends Controller
         else{
             $switch = 0;
         }
-        $data = [
-            'title'=>$request ->title,
-            'description'=>$request->description,
-            'body'=>$request->body,
-            'photo'=>$photo,
-            'user_id'=>$request->user_id,
-            'is_published'=>$switch,
-            
-        ];
+        if($photo == null)
+        {
+            $data = [
+                'title'=>$request ->title,
+                'description'=>$request->description,
+                'body'=>$request->body,
+                'user_id'=>$request->user_id,
+                'is_published'=>$switch,
+                
+                
+            ];
+        }
+        else
+        {
+            $data = [
+                'title'=>$request ->title,
+                'description'=>$request->description,
+                'body'=>$request->body,
+                'photo'=>$photo,
+                'user_id'=>$request->user_id,
+                'is_published'=>$switch,
+                'featured'=>$request->featured
+                
+            ];
+        }
+        
         $article = Article::find($id);
         $article->update($data);
 
-        foreach ($_POST["sections"] as $section)
-        {
-            DB::table('article_section')->update([
-                'article_id'=> $article->id,
-                'section_id'=> $section
-            ]);
+        DB::table('article_section')->where('article_id', '=', $article->id)->delete();
 
+        if(isset($_POST["sections"]))
+        {
+            foreach ($_POST["sections"] as $section)
+            {
+                DB::table('article_section')->insert([
+                    'article_id'=> $article->id,
+                    'section_id'=> $section,
+                    "created_at" => Carbon::now(), # new \Datetime()
+                    "updated_at" => Carbon::now(),  # new \Datetime()
+                ]);
+            }
         }
-        foreach ($_POST["regions"] as $region)
-        {
-            DB::table('article_region')->update([
-                'article_id'=> $article->id,
-                'region_id'=> $region
-            ]);
+        
 
+        DB::table('article_region')->where('article_id', '=', $article->id)->delete();
+
+        if(isset($_POST["regions"]))
+        {
+            foreach ($_POST["regions"] as $region)
+            {
+                DB::table('article_region')->insert([
+                    'article_id'=> $article->id,
+                    'region_id'=> $region,
+                    "created_at" => Carbon::now(), # new \Datetime()
+                    "updated_at" => Carbon::now(),  # new \Datetime()
+                ]);
+
+            }
         }
         return (redirect('articles'));
     }
@@ -281,13 +343,10 @@ class ArticlesController extends Controller
     {
 
         $article = Article::find($id);
-        if($article->photo != null)
-        {
-            $data = [
-                'is_published'=> 1
-            ];
-            $article->update($data);
-        }
+        $data = [
+            'is_published'=> 1
+        ];
+        $article->update($data);
         return (redirect('articles'));
     }
 }

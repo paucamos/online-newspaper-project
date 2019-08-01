@@ -1,16 +1,26 @@
 @extends('layouts.backend')
+@extends('layouts.css')
 @section('content')
-
-    <div class="input-group mb-3">
-        <div class="input-group-prepend">
-            <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+    
+    <div class="row">
+        <div class="col-md-2">
+            <div>
+                <a class="list-group-item list-group-item-action active" href="{{route('articles.create')}}"><span><i class="fas fa-plus-circle"></i></span> Add Article </a>
+            </div>
         </div>
-        <input id="search-bar" type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+        <div class="col-md-10">
+            <div class="input-group mb-3" style="margin-top:12px;">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1"><i class="fas fa-search"></i></span>
+                </div>
+                <input id="search-bar" type="text" class="form-control" placeholder="Search" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+        </div>
     </div>
 
     <div id="contingut">
     @if(Auth::user()->user_type==1)
-       <a href="{{route('articles.create')}}"><span><i class="fas fa-plus-circle"></i></span> Add Article </a>
+       
         <table class="table">
             <th>Title</th><th>Description</th><th>Photo</th><th>Journalist</th><th>Published</th><th>Featured</th><th>Tools</th>
         @forelse($articles as $article)
@@ -39,7 +49,8 @@
 
 
                 <td>
-                    <a href="{{route('articles.show',$article->id)}}"><i class="fas fa-search"></i></a><a href="{{route('articles.edit',$article->id)}}"><i class="fas fa-pencil-alt"></i></a>@if($article->is_published ==1 )<a href="{{route('disablearticle',$article->id)}}"><i class="fas fa-ban"></i></a>@else <a class="linkenable" href="{{route('enablearticle',$article->id)}}"><i class="fas fa-check-circle"></i></a> @endif<a href="{{route('destroyarticle',$article->id)}}"><i class="fas fa-trash"></i></a></td>
+                        <a href="{{route('articles.show',$article->id)}}"><i class="fas fa-search"></i></a><a href="{{route('articles.edit',$article->id)}}"><i class="fas fa-pencil-alt"></i></a>@if($article->is_published ==1 )<a href="{{route('disablearticle',$article->id)}}"><i class="fas fa-ban"></i></a>@else<a class="linkenable" href="{{route('enablearticle',$article->id)}}"><i class="fas fa-check-circle"></i></a> @endif<a href="{{route('destroyarticle',$article->id)}}"><i class="fas fa-trash"></i></a>
+                </td>
             </tr>
         @empty
         <h1>Empty</h1>
@@ -83,12 +94,6 @@
         <h1>Empty</h1>
         @endforelse
         </table>
-        <div id="dialog-message" title="Error">
-            <p>
-                <span class="ui-icon ui-icon-circle-check" style="float:left; margin:0 7px 50px 0;"></span>
-                You cannot enable an article without a photo
-            </p>
-        </div>
     @endif
     </div>
 @endsection
@@ -106,19 +111,6 @@
                     }
                 });
             });
-
-           /* $('.linkenable').click(function()
-            {
-                $( "#dialog-message" ).dialog({
-                    modal: true,
-                    buttons: {
-                        Ok: function() {
-                        $( this ).dialog( "close" );
-                         }
-                    }
-                });
-            });
-            */
         });
     </script>
 @endsection
