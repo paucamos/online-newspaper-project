@@ -16,7 +16,7 @@ class DashboardController extends Controller
         $numArticles = count(Article::get());
         $numSections = count(Section::get());
         $numRegions = count(Region::get());
-        $numPeriodistes = count(User::get());
+        $numPeriodistes = count(User::where('user_type', '=',2)->get());
 
         return view('backend.home', compact('numArticles', 'numSections', 'numRegions', 'numPeriodistes'));
     }
