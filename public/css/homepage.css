@@ -117,6 +117,10 @@
     font-weight: bold;
 }
 
+.date {
+    color: gray;
+}
+
 #secondary-news-text .date {
     color: gray;
     margin-bottom: 5px;
@@ -148,6 +152,10 @@
 
 .older-news a .text-container {
     padding-top: 20px;
+}
+
+.older-news a .text-container .date {
+    color: gray;
 }
 
 /*************** MOBILE ***************/

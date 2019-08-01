@@ -29,7 +29,7 @@
                                     </a>
                                 </div>
                             @empty
-                                
+
                             @endforelse
                         </div>
                         <a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
@@ -55,12 +55,12 @@
                                     <img src="images/{{ $semi_article_1->photo }}" alt="{{ $semi_article_1->title }}">
                                     <div class="news-caption">
                                         <h3>{{ $semi_article_1->title }}</h3>
-                                        <p class="date">{{ $semi_article_1->created_at }}</p>
+                                        <p class="date">{{ $semi_article_1->created_at->format("d-m-Y") }}</p>
                                     </div>
                                 </a>
                             </div>
                         @empty
-                        
+
                         @endforelse
                     </div>
 
@@ -71,12 +71,12 @@
                                     <img src="images/{{ $semi_article_2->photo }}" alt="{{ $semi_article_2->title }}">
                                     <div class="news-caption">
                                         <h3>{{ $semi_article_2->title }}</h3>
-                                        <p class="date">{{ $semi_article_2->created_at }}</p>
+                                        <p class="date">{{ $semi_article_2->created_at->format("d-m-Y") }}</p>
                                     </div>
                                 </a>
                             </div>
                         @empty
-                        
+
                         @endforelse
                     </div>
                 </div>
@@ -92,13 +92,13 @@
                         </div>
                         <div id="secondary-news-text">
                             <h3>{{ $secondary_article->title }}</h3>
-                            <p class="date">{{ $article->created_at }}</p>
+                            <p class="date">{{ $article->created_at->format("d-m-Y") }}</p>
                             <p>{{ $secondary_article->description }}</p>
                         </div>
                     </a>
                 </div>
             @empty
-                
+
             @endforelse
         </div>
         <div class="row">
@@ -111,7 +111,7 @@
                             </div>
                             <div class="text-container">
                                 <h4>{{ $recent_article_1->title }}</h4>
-                                <p class="date">{{ $recent_article_1->created_at }}</p>
+                                <p class="date">{{ $recent_article_1->created_at->format("d-m-Y") }}</p>
                             </div>
                         </a>
                     </div>
@@ -119,7 +119,7 @@
 
                 @endforelse
             </div>
-                
+
 
             <div class="col-lg-6">
                 @forelse ($recent_articles_2 as $recent_article_2)
@@ -130,12 +130,12 @@
                             </div>
                             <div class="text-container">
                                 <h4>{{ $recent_article_2->title }}</h4>
-                                <p class="date">{{ $recent_article_2->created_at }}</p>
+                                <p class="date">{{ $recent_article_2->created_at->format("d-m-Y") }}</p>
                             </div>
                         </a>
                     </div>
                 @empty
-                
+
                 @endforelse
             </div>
 
