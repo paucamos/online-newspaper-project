@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Article;
 use App\User;
+use App\Region;
+use App\Section;
 use Auth;
+use DB;
 use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Redirect;
@@ -52,7 +55,9 @@ class ArticlesController extends Controller
 
             $users = User::find(Auth::user()->id);
         }
-        return view('backend.articles.create',compact('users'));
+        $regions = Region::get();
+        $sections = Section::get();
+        return view('backend.articles.create',compact('users','regions','sections'));
     }
 
     /**
@@ -108,8 +113,24 @@ class ArticlesController extends Controller
             'featured'=>0,
             
         ];
-
         $articles=Article::create($data);
+
+        foreach ($_POST["sections"] as $section)
+        {
+            DB::table('article_section')->insert([
+                'article_id'=> $articles->id,
+                'section_id'=> $section
+            ]);
+
+        }
+        foreach ($_POST["regions"] as $region)
+        {
+            DB::table('article_region')->insert([
+                'article_id'=> $articles->id,
+                'region_id'=> $region
+            ]);
+
+        }
         return(redirect('articles'));
     }
 
@@ -135,6 +156,8 @@ class ArticlesController extends Controller
     public function edit($id)
     {
         $article=Article::find($id);
+        $sections=Section::get();
+        $regions=Region::get();
 
        if(Auth::user()->user_type==1)
         {
@@ -144,7 +167,7 @@ class ArticlesController extends Controller
 
             $users = User::find(Auth::user()->id);
         }
-        return view('backend.articles.edit',compact('article','users'));
+        return view('backend.articles.edit',compact('article','users','sections','regions'));
     }
 
     /**
@@ -203,6 +226,23 @@ class ArticlesController extends Controller
         ];
         $article = Article::find($id);
         $article->update($data);
+
+        foreach ($_POST["sections"] as $section)
+        {
+            DB::table('article_section')->update([
+                'article_id'=> $article->id,
+                'section_id'=> $section
+            ]);
+
+        }
+        foreach ($_POST["regions"] as $region)
+        {
+            DB::table('article_region')->update([
+                'article_id'=> $article->id,
+                'region_id'=> $region
+            ]);
+
+        }
         return (redirect('articles'));
     }
 
