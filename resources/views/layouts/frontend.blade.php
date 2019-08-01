@@ -45,24 +45,39 @@
             </button>
             <div class="navbar-collapse collapse" id="navbar-collapse">
                 <ul>
-                    <li><a href="<?php echo url('/') ?>" class="nav-item active-link">INICI</a></li>
-                    <li><a href="{{ route('sections', [1]) }}" class="nav-item">POLÍTICA</a></li>
-                    <li><a href="{{ route('sections', [5]) }}" class="nav-item">ECONOMIA</a></li>
-                    <li><a href="{{ route('sections', [2]) }}" class="nav-item">ESPORTS</a></li>
+                    <li><a href="<?php echo url('home') ?>" class="nav-item {{ (request()->is('home*')) ? 'active-link' : '' }}">INICI</a></li>
+                    <li><a href="{{ route('sections', ['section_id' => 1, 'section_name' => 'política']) }}" class="nav-item {{ (request()->is('noticies/seccio*política')) ? 'active-link' : '' }}">POLÍTICA</a></li>
+                    <li><a href="{{ route('sections', ['section_id' => 5, 'section_name' => 'economía']) }}" class="nav-item {{ (request()->is('noticies/seccio*economía')) ? 'active-link' : '' }}">ECONOMIA</a></li>
+                    <li><a href="{{ route('sections', ['section_id' => 2, 'section_name' => 'esports']) }}" class="nav-item {{ (request()->is('noticies/seccio*esports')) ? 'active-link' : '' }}">ESPORTS</a></li>
                     <li>
                         <div class="dropdown">
-                            <span class="dropdown-title">REGIONS</span>
+                            <span class="dropdown-title {{ (request()->is('noticies/regio*')) ? 'active-link' : '' }}">REGIONS</span>
                             <div class="dropdown-content">
                                 <ul>
-                                    <li><a href="{{ route('regions', [1]) }}" class="nav-item">GIRONA</a></li>
-                                    <li><a href="{{ route('sections', [2]) }}" class="nav-item">BARCELONA</a></li>
-                                    <li><a href="{{ route('sections', [2]) }}" class="nav-item">TARRAGONA</a></li>
+                                    <li><a href="{{ route('regions', ['region_id' => 4, 'region_name' => 'girona']) }}" class="nav-item {{ (request()->is('noticies/regio*girona')) ? 'active-link' : '' }}">GIRONA</a></li>
+                                    <li><a href="{{ route('regions', ['region_id' => 3, 'region_name' => 'banyoles']) }}" class="nav-item {{ (request()->is('noticies/regio*banyoles')) ? 'active-link' : '' }}">BANYOLES</a></li>
+                                    <li><a href="{{ route('regions', ['region_id' => 1, 'region_name' => 'olot']) }}" class="nav-item {{ (request()->is('noticies/regio*olot')) ? 'active-link' : '' }}">OLOT</a></li>
                                 </ul>
                             </div>
                         </div>
                     </li>
-                    <li><a href="{{ route('quisom') }}" class="nav-item">QUI SOM</a></li>
+                    <li><a href="{{ route('quisom') }}" class="nav-item {{ (request()->is('quisom*')) ? 'active-link' : '' }}">QUI SOM</a></li>
                 </ul>
+
+                {{ Form::open(['url' => route('buscar'), 'class' => 'form']) }}
+                    {{ csrf_field() }}
+                    <div class="input-group">
+                        <input type="text" class="form-control" name="title"
+                            placeholder="Busca una notícia..."> 
+                        <span class="input-group-btn">
+                            <button type="submit" class="btn btn-default">
+                                {{-- <span class="glyphicon glyphicon-search"></span> --}}
+                                Buscar
+                            </button>
+                        </span>
+                    </div>
+                {{ Form::close() }}
+
             </div>
         </nav>
     </header>

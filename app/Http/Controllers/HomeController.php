@@ -26,7 +26,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        return view('welcome');
     }
 
     public function showArticle($id){
@@ -40,18 +40,46 @@ class HomeController extends Controller
 
     public function sectionList($id, Request $request){
         $seccio = Section::find($id);
-        $articles = $seccio->articles()->paginate(10);
-
-        if ($request->ajax()) {
-            return view('ajax.noticies', compact('articles'));
+        $search = false;
+        
+        if($seccio){
+            $articles = $seccio->articles()->paginate(10);
+    
+            if ($request->ajax()) {
+                return view('ajax.noticies', compact('articles','search'));
+            }
+    
+            return view('frontend.sections_regions', compact('articles','search'));
+        }else{
+            return redirect('home');
         }
-
-        return view('frontend.sections_regions', compact('articles'));
     }
 
-    public function regionList($id){
+    public function regionList($id, Request $request){
         $regio = Region::find($id);
-        $articles = $regio->articles()->paginate(1);
-        return view('frontend.sections_regions', compact('regio','articles'));
+        $search = false;
+
+        if($regio){
+            $articles = $regio->articles()->paginate(10);
+
+            if ($request->ajax()) {
+                return view('ajax.noticies', compact('articles','search'));
+            }
+
+            return view('frontend.sections_regions', compact('articles','search'));
+        }else{
+            return redirect('home');
+        }
+    }
+
+    public function search(Request $request){
+        $articles = Article::where('title','LIKE','%'.$request->title.'%')->paginate(10);
+        $search = true;
+
+        if ($request->ajax()) {
+            return view('ajax.noticies', compact('articles','search'));
+        }
+
+        return view('frontend.sections_regions', compact('articles','search'));
     }
 }

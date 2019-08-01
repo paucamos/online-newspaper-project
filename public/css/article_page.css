@@ -22,3 +22,36 @@
 #article-sections-regions h5 {
     font-size: 15px !important;
 }
+
+.no-available-articles {
+    margin: 20px;
+    text-align: center;
+    height: 100%;
+}
+
+.no-available-articles h2 {
+    padding-bottom: 20px;
+    font-size: 35px;
+}
+
+.go-back-link {
+    margin: 20px;
+}
+
+.go-back-link a {
+    display: block;
+    color: #F47857;
+    text-decoration: none;
+    font-size: 18px;
+    padding: 15px;
+    border: 1px solid #F47857;
+    border-radius: 5px;
+    width: 250px;
+    margin: auto;
+    transition: all .2s;
+}
+
+.go-back-link a:hover {
+    color: white;
+    background: #F47857;
+}

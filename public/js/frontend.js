@@ -1,12 +1,6 @@
 
 $(document).ready(function(){
 
-    // add active-link class when menu item is clicked
-    $('.nav-item').click(function(){
-        $('.active-link').removeClass('active-link');
-        $(this).addClass('active-link');
-    });
-
     // quan es clica un link de paginacio cridar funcio ajax
     $(document).on('click', '.pagination a', function (e) {
         getArticles($(this).attr('href').split('page=')[1]);

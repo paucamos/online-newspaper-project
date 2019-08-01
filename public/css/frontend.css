@@ -25,11 +25,6 @@ a:hover {
     transition: .3s;
 }
 
-#header h1 a:hover {
-    text-decoration: none;
-    color: #F47857;
-}
-
 #header #slogan {
     color: gray;
     font-size: 18px;
@@ -38,6 +33,7 @@ a:hover {
 
 .title-header{
     max-width: 100%;
+    margin: 0 70px;
 }
 
 .title-slogan {
@@ -49,6 +45,7 @@ a:hover {
 
 .navbar {
     padding-left: 0;
+    margin: 0 85px;
 }
 
 .navbar ul {
@@ -166,6 +163,38 @@ a:hover {
 
 .navbar-toggler.collapsed .bottom-bar {
   transform: rotate(0);
+}
+
+/* SEARCH BAR */
+
+.form {
+    height: 100%;
+    margin-left: auto;
+    margin-right: 40px;
+}
+
+.form .input-group {
+    height: 100%;
+}
+
+.form .input-group input {
+    padding: 20px;
+    border-radius: 5px !important;
+    border: 1px solid gray;
+}
+
+.form .input-group .input-group-btn button {
+    height: 100%;
+    margin-left: 20px;
+    background: #252926;
+    border: 1px solid #F47857;
+    color: #F47857;
+    transition: all .2s;
+}
+
+.form .input-group .input-group-btn button:hover {
+    color: white;
+    background: #F47857;
 }
 
 /*************** FOOTER ***************/
@@ -303,6 +332,13 @@ a:hover {
         .dropdown-content {
             width: 50%;
             left: 25%;
+        }
+
+        .form {
+            margin-left: 40px;
+            margin-right: 0;
+            margin-top: 20px;
+            margin-bottom: 10px;
         }
 
         /********** FOOTER **********/
